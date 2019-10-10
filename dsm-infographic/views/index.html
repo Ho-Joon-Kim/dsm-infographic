@@ -20,27 +20,49 @@
     <header id="dsmhsHeader">
         <!-- DSMHS 로고 -->
         <div class="dsmhs-logo">
-            <h1>DSMHS</h1>
+            <a href="index.html"><h1>DSM 1학년들의 기후 시그널 인포그래픽 온라인 전시회</h1></a>
         </div>
 
         <!-- DSM 과학 Top Navigation -->
-        <nav>
-            <div class="dsmhs-login">
-                <button class="login-button">로그인</button>
-                <form method="POST">
-                    <input type="text" title="학번 입력" placeholder="학번 입력" id="loginId" class="login-input" autocomplete="off">
-                    <input type="password" title="사전에 받은 비밀번호 입력" placeholder="사전에 받은 비밀번호 입력" id="loginPw" ssclass="login-input" autocomplete="off">
-                    <button id="loginSubmit" class="login-submit login-button">로그인</button>
-                </form>
+        <!--
+        <nav class="gnb-wrap">
+            <div class="gnblist">
+                
             </div>
         </nav>
+        -->
+
+        <!-- DSM 로그인(학번/비밀번호) -->
+        <div class="dsmhs-login">
+            <div id="loginWrap" class="login-wrap">
+                <div id="loginContent" class="login-content">
+                    <button id="loginClose" class="closebtn" type="button">&times;</button>
+                    <form class="login-form" method="POST">
+                        <div class="input-wrap">
+                            <div class="id-wrap">
+                                <div class="input-title">아이디</div>
+                                <input type="text" title="아이디 입력" placeholder="아이디 입력" id="loginId" class="login-input" autocomplete="off">        
+                            </div>
+                            <div class="pw-wrap">
+                                <div class="input-title">비밀번호</div>
+                                <input type="password" title="비밀번호 입력" placeholder="비밀번호 입력" id="loginPw" class="login-input" autocomplete="off">                
+                            </div>
+                        </div>
+                       <div class="submit-wrap">
+                            <button type="submit" id="loginSubmit" class="login-submit">로그인</button>
+                       </div>
+                   </form>
+                </div>
+            </div>
+            <button id="loginOpen" class="login-button" type="button">로그인</button>
+        </div>
     </header>
 
     <!-- Header와 Footer를 제외한 Content 부분 -->
     <div id="dsmhsContentWrap">
         <!-- DSM 과학 Top Banner -->
-        <div class="dsmhs-topbanner"> 
-            <h1>DSM 기후시그널 인포그래픽 온라인 전시회에 오신 걸 환영합니다.</h1>
+        <div id="dsmhsTopBanner"> 
+            <h1 class="topbanner-title">DSM 기후시그널 인포그래픽 온라인 전시회에 오신 걸 환영합니다.</h1>
         </div>
         
         <!-- DSM 과학 Section -->
@@ -118,7 +140,13 @@
 
     <!-- DSM 과학 Footer -->
     <footer id="dsmhsFooter">
-        &copy; 2019 <a href="https://cafe.naver.com/dsmhssci2019.cafe">DSMHS_SCI</a>. Made By <a href="https://github.com/Ho-Joon-Kim">김호준</a>, <a href="https://github.com/yunseo-h68">황윤서</a>.
+        <p class="copyright">
+            &copy; 2019 <a href="https://cafe.naver.com/dsmhssci2019.cafe">DSMHS_SCI</a>. Made By <a href="https://github.com/Ho-Joon-Kim">김호준</a>, <a href="https://github.com/yunseo-h68">황윤서</a>.
+        </p>
     </footer>
+
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
