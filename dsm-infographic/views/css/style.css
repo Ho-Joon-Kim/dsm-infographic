@@ -1,6 +1,6 @@
 /* Base */
 html, body{
-    font-family:'NanumSquare', 'Nanum Gothic', sans-serif;
+    font-family: 'Nanum Gothic','NanumSquare', sans-serif;
 }
 
 html, body,
@@ -45,31 +45,31 @@ input:focus::-ms-input-placeholder {color:transparent; }
 #dsmhsSection,
 #dsmhsFooter {display: inline-block;width: 100%;}
 
-#dsmhsHeader{position: fixed;top:0;height: 80px;background-color: #4CAF50;color: #fff;z-index:999;}
+#dsmhsHeader{position: fixed;top:0;height: 80px;background: #3CA55C;color: #fff;z-index:999;}
 #dsmhsContentWrap {text-align: center;margin-top: 80px;}
-#dsmhsTopBanner {height: 400px;background-color: yellowgreen;}
-#dsmhsSection {background-color: yellow;}
+#dsmhsTopBanner {height: 400px;background-color: #fff;}
+#dsmhsSection {background-color:#eee;}
 #dsmhsFooter {background-color: powderblue;}
 
 /* Dsm Header */
 #dsmhsHeader div {display: inline-block;}
 #dsmhsHeader .dsmhs-logo {text-align:center;width:100%;height: 100%;color:#fff;}
 #dsmhsHeader .dsmhs-logo a  {color: #fff;}
-#dsmhsHeader .dsmhs-logo h1 {font-size: 22px;line-height: 80px;}
+#dsmhsHeader .dsmhs-logo h1 {display: inline-block;width: 50%;font-size: 22px;line-height: 80px;}
 #dsmhsHeader .dsmhs-login {position: absolute;top:0;right:60px;height: 100%;}
-#dsmhsHeader .dsmhs-login .login-button {font-size: 20px;background-color: #4CAF50;color:#fff;width:80px;height: 80px;line-height: 80px;}
-#dsmhsHeader .dsmhs-login .login-button:hover {background-color: #fff; color: #4CAF50}
+#dsmhsHeader .dsmhs-login .login-button {font-size: 20px;background-color: #3CA55C;color:#fff;width:80px;height: 80px;line-height: 80px;}
+#dsmhsHeader .dsmhs-login .login-button:hover {background-color: #fff; color: #3CA55C}
 #dsmhsHeader .dsmhs-login .login-wrap {position: fixed;top: 0; left: 0;transition: 0.3s;z-index:9999;width: 100%; height: 0%; background-color: rgba(0,0,0, 0.7);}
-#dsmhsHeader .dsmhs-login .login-wrap .login-content {display: none;position: absolute; top: 50%; left: 50%;margin-left:-250px;margin-top:-151px;border: 5px solid #4CAF50;border-radius: 20px; width: 500px;height: 302px;background-color: white;}
+#dsmhsHeader .dsmhs-login .login-wrap .login-content {display: none;position: absolute; top: 50%; left: 50%;margin-left:-250px;margin-top:-151px;border: 5px solid #3CA55C;border-radius: 20px; width: 500px;height: 302px;background-color: white;}
 #dsmhsHeader .dsmhs-login .login-wrap .login-content .closebtn {position: absolute; top: 0px; right: 0px;font-size: 18px;font-weight: 700;width: 40px; height: 40px;background-color:transparent}
 #dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form {width: 100%;height: 100%; padding: 40px 50px;}
 #dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .input-wrap {position: relative;height: 162px; width: 100%;}
 #dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .submit-wrap {width: 100%;}
 #dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .input-wrap .id-wrap,
-#dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .input-wrap .pw-wrap {position: relative;width: 100%;border: 1px solid #4CAF50; height: 49px;margin-bottom: 32px;}
-#dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .input-wrap .input-title {float:left;background-color: #4CAF50; width: 35%; font-size: 20px;font-weight: 700;height:100%;color: #fff;line-height: 51px;text-align: center;}
+#dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .input-wrap .pw-wrap {position: relative;width: 100%;border: 1px solid #3CA55C; height: 49px;margin-bottom: 32px;}
+#dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .input-wrap .input-title {float:left;background-color: #3CA55C; width: 35%; font-size: 20px;font-weight: 700;height:100%;color: #fff;line-height: 51px;text-align: center;}
 #dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .input-wrap .login-input {float: left;text-align:center;width: 65%;height: 100%;border: 0 none;}
-#dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .submit-wrap .login-submit {width: 100%;height: 60px;background-color: #4CAF50;font-size: 20px;font-weight: 700;color: #fff;}
+#dsmhsHeader .dsmhs-login .login-wrap .login-content .login-form .submit-wrap .login-submit {width: 100%;height: 60px;background-color: #3CA55C;font-size: 20px;font-weight: 700;color: #fff;}
 
 /* Dsm Top Banner */
 #dsmhsTopBanner .topbanner-title {}
