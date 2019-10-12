@@ -14,13 +14,14 @@
     <!-- 웹 폰트 -->
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean" rel="stylesheet"> 
 </head>
 <body>
     <!-- DSM 과학 Header-->
     <header id="dsmhsHeader">
         <!-- DSMHS 로고 -->
         <div class="dsmhs-logo">
-            <a href="index.html"><h1>DSM 1학년들의 기후 시그널 인포그래픽 온라인 전시회</h1></a>
+            <h1><a href="index.html">DSM 1학년들의 기후 시그널 인포그래픽 온라인 전시회</a></h1>
         </div>
 
         <!-- DSM 과학 Top Navigation -->
@@ -34,27 +35,28 @@
 
         <!-- DSM 로그인(학번/비밀번호) -->
         <div class="dsmhs-login">
-            <div id="loginWrap" class="login-wrap">
-                <div id="loginContent" class="login-content">
-                    <button id="loginClose" class="closebtn" type="button">&times;</button>
-                    <form class="login-form" method="POST">
-                        <div class="input-wrap">
-                            <div class="id-wrap">
-                                <div class="input-title">아이디</div>
-                                <input type="text" title="아이디 입력" placeholder="아이디 입력" id="loginId" class="login-input" autocomplete="off">        
-                            </div>
-                            <div class="pw-wrap">
-                                <div class="input-title">비밀번호</div>
-                                <input type="password" title="비밀번호 입력" placeholder="비밀번호 입력" id="loginPw" class="login-input" autocomplete="off">                
-                            </div>
+            <div id="loginBackground" class="login-background"></div>
+            <div id="loginContent" class="login-content">
+                <button id="loginClose" class="closebtn" type="button">&times;</button>
+                <form class="login-form" method="POST">
+                    <div class="input-wrap">
+                        <div class="id-wrap">
+                            <div class="input-title">아이디</div>
+                            <input type="text" title="아이디 입력" placeholder="아이디 입력" id="loginId" class="login-input" autocomplete="off">        
                         </div>
-                       <div class="submit-wrap">
-                            <button type="submit" id="loginSubmit" class="login-submit">로그인</button>
-                       </div>
-                   </form>
-                </div>
+                        <div class="pw-wrap">
+                            <div class="input-title">비밀번호</div>
+                            <input type="password" title="비밀번호 입력" placeholder="비밀번호 입력" id="loginPw" class="login-input" autocomplete="off">                
+                        </div>
+                    </div>
+                    <div class="submit-wrap">
+                        <button type="submit" id="loginSubmit" class="login-submit">로그인</button>
+                    </div>
+                </form>
             </div>
-            <button id="loginOpen" class="login-button" type="button">로그인</button>
+            <div class="login-open">
+                <button id="loginOpen" class="login-button" type="button">로그인</button>
+            </div>
         </div>
     </header>
 
@@ -67,64 +69,66 @@
         
         <!-- DSM 과학 Section -->
         <section id="dsmhsSection">
-            <!-- 인포그래픽 견본 1-->
-            <div class="infographicWrap 1">
-                <div class="infographic-img">
-                    <img src="" width="100%" alt="Infographic 디자인 1">
+            <div class="infographicWrap">
+                <!-- 인포그래픽 견본 1-->
+                <div class="infographicContent 1">
+                    <div class="infographic-img">
+                        <img src="" width="100%" alt="Infographic 디자인 1">
+                    </div>
+                    <div class="infographic-title">
+                        <h2>인포그래픽 견본 1</h2>
+                    </div>
+                    <div class="infographic-desc">
+                        <p>쏼라쏼라 1</p>
+                    </div>
                 </div>
-                <div class="infographic-title">
-                    <h2>인포그래픽 견본 1</h2>
+                <!-- 인포그래픽 견본 2-->
+                <div class="infographicContent 2">
+                    <div class="infographic-img">
+                        <img src="" width="100%" alt="Infographic 디자인 1">
+                    </div>
+                    <div class="infographic-title">
+                        <h2>인포그래픽 견본 2</h2>
+                    </div>
+                    <div class="infographic-desc">
+                        <p>쏼라쏼라 2</p>
+                    </div>
                 </div>
-                <div class="infographic-desc">
-                    <p>쏼라쏼라 1</p>
+                <!-- 인포그래픽 견본 3-->
+                <div class="infographicContent 3">
+                    <div class="infographic-img">
+                        <img src="" width="100%" alt="Infographic 디자인 1">
+                    </div>
+                    <div class="infographic-title">
+                        <h2>인포그래픽 견본 3</h2>
+                    </div>
+                    <div class="infographic-desc">
+                        <p>쏼라쏼라 3</p>
+                    </div>
                 </div>
-            </div>
-            <!-- 인포그래픽 견본 2-->
-            <div class="infographicWrap 2">
-                <div class="infographic-img">
-                    <img src="" width="100%" alt="Infographic 디자인 1">
+                <!-- 인포그래픽 견본 4-->
+                <div class="infographicContent 4">
+                    <div class="infographic-img">
+                        <img src="" width="100%" alt="Infographic 디자인 1">
+                    </div>
+                    <div class="infographic-title">
+                        <h2>인포그래픽 견본 4</h2>
+                    </div>
+                    <div class="infographic-desc">
+                        <p>쏼라쏼라 4</p>
+                    </div>
                 </div>
-                <div class="infographic-title">
-                    <h2>인포그래픽 견본 2</h2>
-                </div>
-                <div class="infographic-desc">
-                    <p>쏼라쏼라 2</p>
-                </div>
-            </div>
-            <!-- 인포그래픽 견본 3-->
-            <div class="infographicWrap 3">
-                <div class="infographic-img">
-                    <img src="" width="100%" alt="Infographic 디자인 1">
-                </div>
-                <div class="infographic-title">
-                    <h2>인포그래픽 견본 3</h2>
-                </div>
-                <div class="infographic-desc">
-                    <p>쏼라쏼라 3</p>
-                </div>
-            </div>
-            <!-- 인포그래픽 견본 4-->
-            <div class="infographicWrap 4">
-                <div class="infographic-img">
-                    <img src="" width="100%" alt="Infographic 디자인 1">
-                </div>
-                <div class="infographic-title">
-                    <h2>인포그래픽 견본 4</h2>
-                </div>
-                <div class="infographic-desc">
-                    <p>쏼라쏼라 4</p>
-                </div>
-            </div>
-            <!-- 인포그래픽 견본 5-->
-            <div class="infographicWrap 5">
-                <div class="infographic-img">
-                    <img src="" width="100%" alt="Infographic 디자인 1">
-                </div>
-                <div class="infographic-title">
-                    <h2>인포그래픽 견본 5</h2>
-                </div>
-                <div class="infographic-desc">
-                    <p>쏼라쏼라 5</p>
+                <!-- 인포그래픽 견본 5-->
+                <div class="infographicContent 5">
+                    <div class="infographic-img">
+                        <img src="" width="100%" alt="Infographic 디자인 1">
+                    </div>
+                    <div class="infographic-title">
+                        <h2>인포그래픽 견본 5</h2>
+                    </div>
+                    <div class="infographic-desc">
+                        <p>쏼라쏼라 5</p>
+                    </div>
                 </div>
             </div>
         </section>
