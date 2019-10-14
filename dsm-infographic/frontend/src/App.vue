@@ -1,29 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="dsmSciHeader">
+      <dsmsci-header title="DSM 1학년들의 기후 시그널 인포그래픽 온라인 전시회"/>
     </div>
     <router-view/>
+
+    <footer id="dsmSciFooter">
+      <dsmsci-footer/>
+    </footer>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import DsmSciHeader from './components/DsmSciHeader.vue';
+import DsmSciFooter from './components/DsmSciFooter.vue';
+
+export default {
+  name: 'App',
+  components: {
+    'dsmsci-header': DsmSciHeader,
+    'dsmsci-footer': DsmSciFooter
   }
 }
-</style>
+</script>
