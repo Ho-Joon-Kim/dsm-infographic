@@ -23,3 +23,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+    @import '@/styles/dsm-infographic/base.scss';
+</style>

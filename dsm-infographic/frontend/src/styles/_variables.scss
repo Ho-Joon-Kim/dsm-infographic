@@ -1,1 +1,44 @@
-$header-bgcolor: "#19b6b6";
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+/*
+   Typography
+   ========================================================================== */
+@font-face                 { font-family: '116watermelon'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.0/116watermelon.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face                 { font-family: 'HSBombaram'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/HSBombaram.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face                 { font-family: 'NanumBarunpen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+$font-base:               'NanumBarunpen', 'Nanum Gothic','NanumSquare', sans-serif;
+$font-nanum-gothic:       'Nanum Gothic',  sans-serif !default;
+$font-nanum-square:       'NanumSquare', sans-serif !default;
+$font-nanum-barunpen:     'NanumBarunpen', sans-serif !default;
+$font-116watermelon:      '116watermelon', $font-base !default;
+$font-hsbombaram:         'HSBombaram', $font-base !default;
+                          
+$global-font-family:      $font-base !default;
+$header-font-family:      $font-116watermelon !default;
+
+$base-font-size:          16px !default;
+$font-size-1:             1.75rem !default; // 28px
+$font-size-2:             1.25rem !default; // 20px
+$font-size-3:             1.125rem !default; //18px
+
+/*
+   Colors
+   ========================================================================== */
+$white-color:             #ffffff !default;
+$white-color-dark:        #eeeeee !default;
+$gray-color:              #4e4e4e !default;
+$black-color:             #000000 !default;
+$black-color-light:       #1e1e1e !default;
+
+$primary-color:           #19b6b6 !default;
+$primary-color-dark:      #0e7474 !default;
+$focus-color:             $primary-color !default;
+
+$base-bgcolor:            $white-color !default;
+$header-bgcolor:          $primary-color !default;
+
+$text-color:              $black-color-light !default;
+$header-color:            $white-color !default;

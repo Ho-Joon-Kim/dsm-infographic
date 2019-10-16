@@ -1,0 +1,74 @@
+html, body {
+    font-family: $global-font-family;
+    font-size: $base-font-size;
+}
+
+html, body, h1, h2, h3, h4, h5, h6,
+header, nav, section, article, footer,
+hgroup, ol, ul, li, form, input, textarea,
+p, a, button, span, figure, th, td, dl,
+dd, blockquote, div {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+header, nav, section, article,
+footer, hgroup, ol, ul, li {
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0 none;
+}
+
+input {
+    vertical-align: middle;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    border: 0 none;
+    overflow: visible;
+    white-space: nowrap;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+input:focus::-webkit-input-placeholder {
+    color:transparent;
+    vertical-align:middle;
+}
+
+input:focus:-moz-placeholder {
+    color:transparent;
+    vertical-align:middle;
+}
+
+input:focus::-moz-input-placeholder {
+    color:transparent;
+    vertical-align:middle; 
+}
+
+input:focus::-ms-input-placeholder {
+    color:transparent;
+    vertical-align:middle;
+}
+
+.screen-out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
