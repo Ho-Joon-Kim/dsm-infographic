@@ -67,13 +67,13 @@ export default {
     display: String,
   },
   data() {
-      return {
-          userId : '',
-          userPw : '',
-          ok : false,
-          result : null
-      }
-  }
+    return {
+      userId: '',
+      userPw: '',
+      ok: false,
+      result: null,
+    };
+  },
   computed: {
     computedHeight() {
       return this.height;
@@ -84,17 +84,16 @@ export default {
   },
   methods: {
     clickLoginSubmit() {
-        console.log("Request : {id : ", this.userId, ", pw : ", this.userPw, "}");
-        this.$http.post('/api/login',
-          { id: this.userId, pw: this.userPw }
-        ).then(response => {
-            this.ok = true;
-            this.result = response.data;
-            console.log("Response : ", response.data);
-        }).catch((err) => {
-            console.warn("ERROR : ", err);
-        });
-    }
+      console.log('Request : {id : ', this.userId, ', pw : ', this.userPw, '}');
+      this.$http.post('api/auth/login',
+        { id: this.userId, pwsd: this.userPw }).then((response) => {
+        this.ok = true;
+        this.result = response.data;
+        console.log('Response : ', response.data);
+      }).catch((err) => {
+        console.warn('ERROR : ', err);
+      });
+    },
     clickLoginClose() {
       this.$emit('click-login-close');
     },
