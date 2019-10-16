@@ -1,0 +1,94 @@
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+#dsmSciHeader {
+    position:          fixed;
+
+    top:               0;
+    
+    width:             100%;
+    height:            $header-height;
+    
+    color:             $header-color;
+    
+    background-color:  $header-bgcolor;
+    
+    z-index:           $index-fir;
+
+    div {
+        display:           inline-block;
+    }
+
+    .dsmsci-logo {
+        width:             100%;
+        height:            100%;
+
+        color:             $white-color;
+
+        text-align:        center;
+        
+        h1 {
+            display:          inline-block;
+            width:            100%;
+            line-height:      $header-height;
+            font-size:        $font-size-1;
+            text-shadow:      4px 4px 2px $primary-color-dark;
+            
+            a {
+                color:             $white-color;
+                font-family:       $font-nanum-gothic;
+                font-weight:       normal;
+                letter-spacing:    $letter-spacing-1;
+            }
+        }
+    }
+
+    .login-oepn-wrap {
+        position:          absolute;
+        top:               0;
+        right:             60px;
+        
+        height:            100%;
+        
+        .login-open {
+            display:           inline-block;
+    
+            width:             $header-loginopen-width;
+            height:            $header-loginopen-height;
+    
+            line-height:       $header-loginopen-height;
+    
+            text-align:        center;
+    
+            .login-button {
+                position:          absolute;
+                top:               0;
+                left:              0;
+                right:             0;
+                bottom:            0;
+    
+                margin:            auto 0;
+    
+                width:             95%;
+                height:            calc(#{$header-height} / 2);
+    
+                color:             $primary-color;
+                background-color:  $white-color;
+    
+                font-size:         $font-size-2;
+    
+                border-radius:     $login-border-radius;
+                
+                -moz-box-shadow:   0 5px 5px 0 rgba(0,0,0,.2);
+                -webkit-box-shadow:0 5px 5px 0 rgba(0,0,0,.2);
+                box-shadow:        0 5px 5px 0 rgba(0,0,0,.2);
+    
+                &:hover {
+                    color:             $white-color;
+                    background-color:  $primary-color;
+                }
+            }
+        }
+    }
+}
