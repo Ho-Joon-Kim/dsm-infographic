@@ -19,11 +19,12 @@
         type="button"
         v-on:click="clickLoginClose"
       >&times;</button>
-      <form class="login-form" method="POST">
+      <div class="login-form">
         <div class="input-wrap">
           <div class="id-wrap">
             <div class="input-title">아이디</div>
             <input
+              v-model="userId"
               type="text"
               title="아이디 입력"
               placeholder="아이디 입력"
@@ -35,6 +36,7 @@
           <div class="pw-wrap">
             <div class="input-title">비밀번호</div>
             <input
+              v-model="userPw"
               type="password"
               title="비밀번호 입력"
               placeholder="비밀번호 입력"
@@ -45,9 +47,14 @@
           </div>
         </div>
         <div class="submit-wrap">
-          <button type="submit" id="loginSubmit" class="login-submit">로그인</button>
+          <button
+            v-on:click="clickLoginSubmit"
+            type="submit"
+            id="loginSubmit"
+            class="login-submit"
+          >로그인</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -59,6 +66,14 @@ export default {
     height: String,
     display: String,
   },
+  data() {
+      return {
+          userId : '',
+          userPw : '',
+          ok : false,
+          result : null
+      }
+  }
   computed: {
     computedHeight() {
       return this.height;
@@ -68,6 +83,18 @@ export default {
     },
   },
   methods: {
+    clickLoginSubmit() {
+        console.log("Request : {id : ", this.userId, ", pw : ", this.userPw, "}");
+        this.$http.post('/api/login',
+          { id: this.userId, pw: this.userPw }
+        ).then(response => {
+            this.ok = true;
+            this.result = response.data;
+            console.log("Response : ", response.data);
+        }).catch((err) => {
+            console.warn("ERROR : ", err);
+        });
+    }
     clickLoginClose() {
       this.$emit('click-login-close');
     },
