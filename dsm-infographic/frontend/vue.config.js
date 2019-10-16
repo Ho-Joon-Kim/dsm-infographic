@@ -2,7 +2,7 @@ module.exports = {
   devServer: {
     proxy: { // proxyTable 설정
       '/api': {
-        target: 'http://localhost:3000/apt',
+        target: 'http://localhost:3000/api',
         changeOrigin: true,
         pathRewrite: {
           '^/apt': '',
