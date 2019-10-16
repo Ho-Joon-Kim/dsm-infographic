@@ -2,7 +2,6 @@
   <div id="app">
     <dsmsci-header title="DSM 1학년들의 기후 시그널 인포그래픽 온라인 전시회" />
     <router-view />
-
     <dsmsci-footer />
   </div>
 </template>
