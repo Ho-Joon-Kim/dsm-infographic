@@ -1,4 +1,12 @@
 #infographicGallery {
+  margin-top:        80px;
   width:             100%;
+  background-color:  $white-color-dark;
   text-align:        center;
+
+  .infographic-wrap {
+    display:           inline-block;
+    width:             80%;
+    padding:           20px;
+  }
 }

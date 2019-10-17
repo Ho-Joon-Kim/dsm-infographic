@@ -1,0 +1,70 @@
+.infographic-content {
+  position:          relative;
+  width:             25%;  
+  width:             -webkit-calc(25% - 20px);
+  width:             -moz-calc(25% - 20px);
+  width:             calc(25% - 20px);
+  margin:            10px;
+  float:             left;
+
+  &:hover {
+    cursor:            pointer;
+    
+    .infographic-info {
+      .infographic-desc {
+        width:             100%;
+        opacity:           0.8;
+      }
+    }
+
+    .infographic-title {
+      h2::after {
+        content:           '';
+        position:          absolute;
+        left:              50%;
+        bottom:            -5px;
+        margin-left:       -webkit-calc(#{$infographic-title-bottombar} / -2);
+        margin-left:       -moz-calc(#{$infographic-title-bottombar} / -2);
+        margin-left:       calc(#{$infographic-title-bottombar} / -2);
+        width:             $infographic-title-bottombar;
+        height:            2px;
+        color:             transparent;
+        background-color:  $black-color-light;
+      }
+    }
+  }
+
+  .infographic-info {
+    position:          relative;
+
+    .infographic-desc {
+      position:          absolute;
+      top:               0;
+      left:              0;
+      right:             0;
+      width:             100%;
+      height:            100%;
+      background-color:  $primary-color-light-dark;
+      overflow:          hidden;
+      transition:        0.4s;
+      opacity:           0;
+
+      .infographic--desc {
+        color:             $white-color;
+        line-height:       $infographic-img-height;
+        height:            100%;
+      }
+    }
+
+    .infographic-img {
+      display:           inline-block;
+      width:             100%;
+      height:            $infographic-img-height
+    }
+  }
+
+  .infographic-title {
+    position:          relative;
+    color:             $black-color-light;
+  }
+}

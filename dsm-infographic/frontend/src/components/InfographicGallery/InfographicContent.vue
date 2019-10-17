@@ -1,11 +1,11 @@
 <template>
-  <div class="infographic-content {{ contentId }}" title="[{{contentId}}] - {{ title }}">
+  <div class="infographic-content"  :class="contentId">
     <div class="infographic-info">
       <div class="infographic-desc">
         <p class="infographic--desc">{{ desc }}</p>
       </div>
       <div class="infographic-img">
-        <img class="infographic--img" src="" width="100%" alt="[{{contentId}}] - {{ title }}">
+        <img class="infographic--img" src="" width="100%" :alt="title">
       </div>
     </div>
     <div class="infographic-title">
@@ -18,7 +18,7 @@
 export default {
   name: 'infographic-content',
   props: {
-    contentId: Number,
+    contentId: String,
     title: String,
     desc: String,
   },
