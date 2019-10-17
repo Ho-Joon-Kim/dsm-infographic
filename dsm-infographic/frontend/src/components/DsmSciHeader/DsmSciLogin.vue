@@ -85,7 +85,7 @@ export default {
   methods: {
     clickLoginSubmit() {
       console.log('Request : {id : ', this.userId, ', pw : ', this.userPw, '}');
-      this.$http.post('api/auth/login',
+      this.$http.post('api/login',
         { id: this.userId, pswd: this.userPw }).then((response) => {
         this.ok = true;
         this.result = response.data;
