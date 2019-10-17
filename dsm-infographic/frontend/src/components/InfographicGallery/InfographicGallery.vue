@@ -1,7 +1,7 @@
 <template>
   <div id="infographicGallery" class="infographic-gallery">
     <div id="infographicWrap" class="infographic-wrap">
-      <infographic-content/>
+      <infographic-content contentId="1" title="Test" desc="Test Desc"/>
     </div>
   </div>
 </template>
