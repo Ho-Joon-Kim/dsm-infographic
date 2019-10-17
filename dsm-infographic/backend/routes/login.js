@@ -4,7 +4,7 @@ var user = require("C:/Users/user/Documents/Git/dsm-infographic/dsm-infographic/
 
 
 
-router.post('/', function(req, res, next) {
+router.post('api/', function(req, res, next) {
     var user_id = req.body.id;
     var user_pswd= req.body.pswd;
 
