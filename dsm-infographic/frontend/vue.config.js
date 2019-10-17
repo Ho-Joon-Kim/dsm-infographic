@@ -5,7 +5,7 @@ module.exports = {
         target: 'http://localhost:3000/api',
         changeOrigin: true,
         pathRewrite: {
-          '^/apt': '',
+          '^/api': '',
         },
       },
     },

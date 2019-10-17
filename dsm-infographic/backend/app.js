@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 
 
 var mainRouter = require('./routes/');
-//var indexRouter = require('./routes/api/index');
-//var loginRouter = require('./routes/api/login');
+var indexRouter = require('./routes/index');
+var loginRouter = require('./routes/login');
 //var infoRouter = require('./routes/info');
 
 var app = express();
@@ -26,8 +26,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', mainRouter);
-app.use('/api/index', mainRouter);
-app.use('/api/login', mainRouter);
+app.use('/api/index', indexRouter);
+app.use('/api/login', loginRouter);
 //app.use('/info', infoRouter);
 
 // catch 404 and forward to error handler

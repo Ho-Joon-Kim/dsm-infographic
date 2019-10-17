@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var user = require("C:/Users/user/Documents/Git/dsm-infographic/dsm-infographic/backend/public/user.json");
+var user = require("../public/user.json");
 
 
 
-router.post('api/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     var user_id = req.body.id;
     var user_pswd= req.body.pswd;
 
