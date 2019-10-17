@@ -1,11 +1,11 @@
 <template>
   <div id="dsmSciHome" class="dsmsci-home">
-    <infograpic-gallery/>
+    <infographic-gallery/>
   </div>
 </template>
 
 <script>
-import InfographicGallery from './components/InfographicGallery/InfographicGallery.vue';
+import InfographicGallery from '@/components/InfographicGallery/InfographicGallery.vue';
 
 export default {
   name: 'home',

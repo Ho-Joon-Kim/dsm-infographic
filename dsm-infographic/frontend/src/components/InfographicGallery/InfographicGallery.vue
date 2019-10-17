@@ -1,11 +1,19 @@
 <template>
-  <div id="infographicGallery" class="infographic-gallery">\
+  <div id="infographicGallery" class="infographic-gallery">
+    <div id="infographicWrap" class="infographic-wrap">
+      <infographic-content/>
+    </div>
   </div>
 </template>
 
 <script>
+import InfographicContent from '@/components/InfographicGallery/InfographicContent.vue';
+
 export default {
-  name: 'infographic-gallery'
+  name: 'infographic-gallery',
+  components: {
+    'infographic-content': InfographicContent,
+  },
 };
 </script>
 
