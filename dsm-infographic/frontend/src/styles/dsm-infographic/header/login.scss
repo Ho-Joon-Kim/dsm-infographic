@@ -7,34 +7,24 @@
         position:          fixed;
         top:               0;
         left:              0;
-        
         z-index:           $index-sec;
-        
         width:             100%;
         height:            0%;
-
         background-color:rgba(0,0,0, 0.7);
-        
         transition:        0.3s;
     }
 
     .login-content {
         display:           none;
-
         position:          fixed;
         top:               50%;
         left:              50%;
-        
         margin-top:        calc(#{$login-content-height} / -2);
         margin-left:       calc(#{$login-content-width} / -2);
-
         z-index:           $index-fir;
-
         width:             $login-content-width;
         height:            $login-content-height;
-
         background-color:  $white-color;
-
         border:            5px solid $primary-color;
         border-radius:     $login-border-radius;
 
@@ -42,12 +32,9 @@
             position:          absolute;
             top:               0px;
             right:             0px;
-
             width:             $login-closebtn-width;
             height:            $login-closebtn-height;
-
             background-color:  transparent;
-
             font-size:         $font-size-3;
             font-weight:       bold;
         }
@@ -55,63 +42,46 @@
         .login-form {
             width:            100%;
             height:           100%;
-            
             padding:          $login-form-padding-tb $login-form-padding-lr;
 
             .input-wrap {
                 position:          relative;
-
                 width:             100%;
                 height:            $login-inputwrap-height;
 
                 .id-wrap,
                 .pw-wrap {
                     position:          relative;
-                    
                     margin-bottom:     $login-idpwwrap-bottom;
-                    
                     width:             100%;
                     height:            $login-idpwwrap-height;
-
                     background-color:  $primary-color;  
-
                     border-radius:     15px;
                 }
 
                 .input-title {
                     float:             left;
-
                     width:             $login-input-title-width;
                     height:            100%;
-
                     color:             $white-color;
                     background-color:  $primary-color;
-                    
                     font-size:         $font-size-2;
                     font-weight:       bold;
-
                     border-top-left-radius:    15px;
                     border-bottom-left-radius: 15px;
-                    
                     line-height:      $login-input-title-lineheight;
-
                     text-align:       center;
                 }
 
                 .login-input {
                     float:             left;
-
                     width:             $login-login-input-width;
                     height:            100%;
-
                     color:             $gray-color;
-                    
                     font-size:         $font-size-3;
-
                     border:            2px solid $primary-color;
                     border-top-right-radius:    15px;
                     border-bottom-right-radius: 15px;
-
                     text-align:       center;        
                 }
             }
@@ -122,12 +92,9 @@
                 .login-submit {
                     width:             100%; 
                     height:            $login-submit-button-height;
-                    
                     border-radius:    15px;
-
                     color:            $white-color;
                     background-color: $primary-color;
-
                     font-size:        $font-size-2;
                     font-weight:      bold;
                 }
