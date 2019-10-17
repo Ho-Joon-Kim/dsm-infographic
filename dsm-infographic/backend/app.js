@@ -6,16 +6,16 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 
-var mainRouter = require('./routes/');
-var indexRouter = require('./routes/index');
-var loginRouter = require('./routes/login');
-var infoRouter = require('./routes/info');
+var mainRouter = require('./routes/api/');
+var indexRouter = require('./routes/api/index');
+var loginRouter = require('./routes/api/login');
+//var infoRouter = require('./routes/info');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', mainRouter);
 app.use('/index', indexRouter);
 app.use('/login', loginRouter);
-app.use('/info', infoRouter);
+//app.use('/info', infoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
