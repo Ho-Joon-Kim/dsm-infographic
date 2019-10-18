@@ -14,12 +14,12 @@ router.post('/', function(req, res, next) {
     {
         if(user[user_id]["pswd"] == req.body.pswd)
         {
-            res.send({ username : user[user_id]["name"], loginchk : "true"})
+            res.send({ username : user[user_id]["name"], loginchk : true})
         }
     }
     else
     {
-        res.send({ username : "", loginchk : "false"})
+        res.send({ username : "", loginchk : false})
     }
 });
 
