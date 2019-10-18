@@ -1,6 +1,5 @@
 {
-    "user":[
-        {"1111":[{"pswd":"helloworld"},{"name":"실험체1"}]}
+    "1111":{"pswd":"helloworld","name":"실험체1"}
 
 
 
@@ -8,6 +7,4 @@
 
 
 
-
-    ]
 }
