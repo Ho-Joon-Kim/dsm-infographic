@@ -5,6 +5,7 @@
   width:             -moz-calc(25% - 20px);
   width:             calc(25% - 20px);
   margin:            10px;
+  margin-bottom:     50px;
   float:             left;
 
   &:hover {
@@ -59,7 +60,8 @@
     .infographic-img {
       display:           inline-block;
       width:             100%;
-      height:            $infographic-img-height
+      height:            $infographic-img-height;
+      border:            1px solid $primary-color-light-dark;
     }
   }
 

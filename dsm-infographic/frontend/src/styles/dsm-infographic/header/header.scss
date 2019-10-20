@@ -36,12 +36,14 @@
         }
     }
 
+    .login-user-wrap,
     .login-oepn-wrap {
         position:          absolute;
         top:               0;
         right:             60px;
         height:            100%;
 
+        .login-ok,
         .login-open {
             display:           inline-block;
             width:             $header-loginopen-width;
@@ -49,6 +51,7 @@
             line-height:       $header-loginopen-height;
             text-align:        center;
 
+            .login-user,
             .login-button {
                 position:          absolute;
                 top:               0;

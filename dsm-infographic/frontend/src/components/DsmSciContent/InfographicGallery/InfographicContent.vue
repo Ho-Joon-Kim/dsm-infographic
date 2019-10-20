@@ -26,5 +26,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/styles/dsm-infographic/infographic-gallery/infographic-content.scss";
+@import "@/styles/dsm-infographic/content/infographic-gallery/infographic-content.scss";
 </style>

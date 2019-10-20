@@ -1,16 +1,16 @@
 <template>
   <div id="dsmSciHome" class="dsmsci-home">
-    <infographic-gallery/>
+    <dsmsci-content/>
   </div>
 </template>
 
 <script>
-import InfographicGallery from '@/components/InfographicGallery/InfographicGallery.vue';
+import DsmSciContent from '@/components/DsmSciContent/DsmSciContent.vue';
 
 export default {
   name: 'home',
   components: {
-    'infographic-gallery': InfographicGallery,
+    'dsmsci-content': DsmSciContent,
   },
 };
 </script>

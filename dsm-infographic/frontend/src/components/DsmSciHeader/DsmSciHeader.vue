@@ -8,25 +8,36 @@
     </div>
 
     <!-- DSM 로그인(학번/비밀번호) 버튼 -->
-    <div class="login-oepn-wrap">
-      <div class="login-open">
-        <button
-          id="loginOpen"
-          v-on:click="clickLoginOpen"
-          class="login-button"
-          type="button"> 로그인</button>
+    <div v-if="this.isAuth">
+      <div class="login-user-wrap">
+        <div class="login-ok">
+          <button class="login-user">{{ this.uname }}</button>
+        </div>
       </div>
     </div>
 
-    <dsmsci-login
-      v-bind:height="loginHeight"
-      v-bind:display="loginDisplay"
-      v-on:click-login-close="clickLoginClose"
-    />
+    <div v-else>
+      <div class="login-oepn-wrap">
+        <div class="login-open">
+          <button
+            id="loginOpen"
+            v-on:click="clickLoginOpen"
+            class="login-button"
+            type="button"> 로그인</button>
+        </div>
+      </div>
+
+      <dsmsci-login
+        v-bind:height="loginHeight"
+        v-bind:display="loginDisplay"
+        v-on:click-login-close="clickLoginClose"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex';
 import DsmSciLogin from './DsmSciLogin.vue';
 
 export default {
@@ -42,6 +53,12 @@ export default {
   },
   components: {
     'dsmsci-login': DsmSciLogin,
+  },
+  computed: {
+    ...mapGetters(['getUName']),
+    ...mapGetters(['getIsAuth']),
+    ...mapState(['uname']),
+    ...mapState(['isAuth']),
   },
   methods: {
     clickLoginOpen() {

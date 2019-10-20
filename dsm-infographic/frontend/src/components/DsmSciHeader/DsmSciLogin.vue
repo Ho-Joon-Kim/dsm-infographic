@@ -48,7 +48,7 @@
         </div>
         <div class="submit-wrap">
           <button
-            v-on:click="clickLoginSubmit"
+            v-on:click="onSubmit"
             type="submit"
             id="loginSubmit"
             class="login-submit"
@@ -60,6 +60,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'dsmsci-login',
   props: {
@@ -81,18 +83,16 @@ export default {
     computedDisplay() {
       return this.display;
     },
+    ...mapGetters({
+      errorState: 'getErrorState',
+    }),
   },
   methods: {
-    clickLoginSubmit() {
+    ...mapActions(['login']),
+    async onSubmit() {
       console.log('Request : {id : ', this.userId, ', pw : ', this.userPw, '}');
-      this.$http.post('api/login',
-        { id: this.userId, pswd: this.userPw }).then((response) => {
-        this.ok = true;
-        this.result = response.data;
-        console.log('Response : ', response.data);
-      }).catch((err) => {
-        console.warn('ERROR : ', err);
-      });
+      await this.login({ uid: this.userId, pswd: this.userPw });
+      this.clickLoginClose();
     },
     clickLoginClose() {
       this.$emit('click-login-close');
