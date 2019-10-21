@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var mainRouter = require('./routes/');
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
-//var infoRouter = require('./routes/info');
+var infoRouter = require('./routes/info');
 
 var app = express();
 
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', mainRouter);
 app.use('/api/index', indexRouter);
 app.use('/api/login', loginRouter);
-//app.use('/info', infoRouter);
+app.use('/api/info', infoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

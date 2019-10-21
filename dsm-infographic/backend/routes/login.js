@@ -10,8 +10,9 @@ router.post('/', function(req, res, next) {
 
     if(user[user_id])
     {
-        if(user[user_id]["pswd"] == req.body.pswd)
+        if(user[user_id]["pswd"] == user_pswd)
         {
+            console.log(user[user_id]["pswd"])//실험용 코드
             res.send({ username : user[user_id]["name"], loginchk : true})
         }
 
