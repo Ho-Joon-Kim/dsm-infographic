@@ -5,7 +5,7 @@
         <p class="infographic--desc">{{ desc }}</p>
       </div>
       <div class="infographic-img">
-        <img class="infographic--img" src="" width="100%" :alt="title">
+        <img class="infographic--img" :src="imgLink" width="100%" :alt="title">
       </div>
     </div>
     <div class="infographic-title">
@@ -21,6 +21,7 @@ export default {
     contentId: String,
     title: String,
     desc: String,
+    imgLink: String,
   },
 };
 </script>

@@ -45,14 +45,14 @@
       right:             0;
       width:             100%;
       height:            100%;
-      background-color:  $primary-color-light-dark;
+      background-color:  $primary-color-dark;
       overflow:          hidden;
       transition:        0.4s;
       opacity:           0;
 
       .infographic--desc {
         color:             $white-color;
-        line-height:       $infographic-img-height;
+        //line-height:       $infographic-img-height;
         height:            100%;
       }
     }
@@ -60,7 +60,7 @@
     .infographic-img {
       display:           inline-block;
       width:             100%;
-      height:            $infographic-img-height;
+      max-height:        $infographic-img-height;
       border:            1px solid $primary-color-light-dark;
     }
   }
