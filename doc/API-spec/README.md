@@ -18,7 +18,7 @@ DSM-Infographic의 Backend API 설계한 내용을 정리합니다.
   - Request Body : id,pswd
   - Success Code : X
   - Response Header : X
-  - Response Body : username
+  - Response Body : username, loginchk
 
   
 - `GET /api/info ? num:` : 인포그래픽 사진을 응답하는 API. img 변수를 보내면 그에 맞는 이미지를 반환한다.
