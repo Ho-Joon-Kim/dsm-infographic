@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var infoRouter = require('./routes/info');
 var descRouter = require('./routes/desc');
+var serveyRouter = require('./routes/servey');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use('/api/index', indexRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/info', infoRouter);
 app.use('/api/desc', descRouter);
+app.use('/api/servey', serveyRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
