@@ -21,10 +21,18 @@ DSM-Infographic의 Backend API 설계한 내용을 정리합니다.
   - Response Body : username
 
   
-- `POST /api/info ? num:` : 인포그래픽 사진을 응답하는 api num 변수를                                   쿼리스트링에 보내면 그에 맞는 이미지를 반환한다.
-  - Request Header : num
+- `GET /api/info ? num:` : 인포그래픽 사진을 응답하는 API. img 변수를 보내면 그에 맞는 이미지를 반환한다.
+  - Request Header : img
   - Params : X
   - Request Body : X
   - Success Code : X
   - Response Header : X
   - Response Body : X
+
+  - `GET /api/desc ? num:` : 인포그래픽 설명을 응답하는 API. desc 변수를 보내면 그에 맞는 설명을 반환한다.
+  - Request Header : desc
+  - Params : X
+  - Request Body : X
+  - Success Code : X
+  - Response Header : X
+  - Response Body : desc
