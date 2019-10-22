@@ -1,0 +1,97 @@
+.infographic-detail {
+  &.closeDetail {
+    .detail-background {
+      height:            0%; 
+    }
+    .detail-content {
+      display:           none;  
+    }
+  }
+
+  .detail-background {
+    position:          fixed;
+    top:               0;
+    left:              0;
+    z-index:           $index-5;
+    width:             100%;
+    height:            100%;
+    background-color:rgba(0,0,0, 0.7);
+    transition:        0.3s;
+  }
+
+  .detail-content {
+    display:           inline-block;
+    position:          fixed;
+    top:               50%;
+    left:              50%;
+    margin-top:        ($detail-content-height / -2);
+    margin-top:        calc(#{$detail-content-height} / -2);
+    margin-top:        -moz-calc(#{$detail-content-height} / -2);
+    margin-top:        -webkit-calc(#{$detail-content-height} / -2);
+    margin-top:        -ms-calc(#{$detail-content-height} / -2);
+    margin-left:       ($detail-content-width / -2);
+    margin-left:       calc(#{$detail-content-width} / -2);
+    margin-left:       -moz-calc(#{$detail-content-width} / -2);
+    margin-left:       -webkit-calc(#{$detail-content-width} / -2);
+    margin-left:       -ms-calc(#{$detail-content-width} / -2);
+    margin-left:       ($detail-content-width / -2);
+    width:             $detail-content-width;
+    height:            $detail-content-height;
+    z-index:           $index-4;
+    background-color:  $white-color;
+    border:            5px solid $primary-color;
+    border-radius:     $detail-border-radius;
+
+    #detailClose.closebtn {
+      position:          absolute;
+      top:               0px;
+      right:             0px;
+      width:             $detail-closebtn-width;
+      height:            $detail-closebtn-height;
+      background-color:  transparent;
+      font-size:         $font-size-1;
+      font-weight:       bold;
+    }
+
+    #detailPrev.prev-button {
+      display:           none;
+      position:          absolute;
+    }
+
+    #detailNext.next-button {
+      display:           none;
+      position:          absolute;
+    }
+
+    .detail-img {
+      position:          relative;
+      float:             left;
+      width:             50%;
+      height:            100%;
+      
+      .detail--img {
+        height:            100%;
+        border-top-left-radius:     $detail-border-radius - 7px;
+        border-bottom-left-radius:  $detail-border-radius - 7px;
+      }
+    }
+
+    .detail-info {
+      padding:           20px;
+      float:             left;
+      width:             50%;
+      height:            100%;
+
+      .detail-title {
+        font-size:         $font-size-1;
+        margin-top:        30px;
+        margin-bottom:     10px;
+      }
+
+      .detail-desc {
+        font-size:         $font-size-3;
+        margin-bottom:     10px;
+      }
+    }
+  }
+}

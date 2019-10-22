@@ -1,5 +1,15 @@
-import { UNAME, IS_AUTH, ERROR_STATE } from './mutation_types';
+import {
+  UID, UNAME, IS_AUTH, ERROR_STATE,
+  CLICK_CONTENT_ID,
+} from './mutation_types';
+
 import api from '../service';
+
+/* Login */
+
+const setUID = ({ commit }, data) => {
+  commit(UID, data);
+};
 
 const setUNAME = ({ commit }, data) => {
   commit(UNAME, data);
@@ -24,10 +34,19 @@ const processResponse = (store, loginResponse) => {
   }
 };
 
+/* Click Infographic */
+const setClickContentId = ({ commit }, data) => {
+  commit(CLICK_CONTENT_ID, data);
+};
+
 export default {
   async login(store, { uid, pswd }) {
     const loginResponse = await api.login(uid, pswd);
     processResponse(store, loginResponse.data);
+    setUID(store, uid);
     return store.getters.getIsAuth;
+  },
+  clickContent(store, { contentId }) {
+    setClickContentId(store, contentId);
   },
 };

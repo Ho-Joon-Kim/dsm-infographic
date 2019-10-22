@@ -7,9 +7,14 @@ import mutations from './mutations';
 Vue.use(Vuex);
 
 const state = {
+  /* Login */
+  uid: '',
   uname: '',
   errorState: '',
   isAuth: false,
+
+  /* Click Infographic */
+  clickContentId: '',
 };
 
 export default new Vuex.Store({

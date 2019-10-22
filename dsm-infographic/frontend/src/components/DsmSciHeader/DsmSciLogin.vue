@@ -90,7 +90,6 @@ export default {
   methods: {
     ...mapActions(['login']),
     async onSubmit() {
-      console.log('Request : {id : ', this.userId, ', pw : ', this.userPw, '}');
       await this.login({ uid: this.userId, pswd: this.userPw });
       this.clickLoginClose();
     },

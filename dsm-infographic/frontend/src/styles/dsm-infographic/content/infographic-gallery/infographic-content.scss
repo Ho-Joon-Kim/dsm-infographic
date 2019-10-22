@@ -1,9 +1,10 @@
 .infographic-content {
   position:          relative;
-  width:             25%;  
-  width:             -webkit-calc(25% - 20px);
-  width:             -moz-calc(25% - 20px);
-  width:             calc(25% - 20px);
+  width:             $infographic-content-width;  
+  width:             -webkit-calc(#{$infographic-content-width} - #{$infographic-content-margin} * 2);
+  width:             -moz-calc(#{$infographic-content-width} - #{$infographic-content-margin} * 2);
+  width:             -ms-calc(#{$infographic-content-width} - #{$infographic-content-margin} * 2);
+  width:             calc(#{$infographic-content-width} - #{$infographic-content-margin} * 2);
   margin:            10px;
   margin-bottom:     50px;
   float:             left;
@@ -26,7 +27,9 @@
         bottom:            -5px;
         margin-left:       -webkit-calc(#{$infographic-title-bottombar} / -2);
         margin-left:       -moz-calc(#{$infographic-title-bottombar} / -2);
+        margin-left:       -ms-calc(#{$infographic-title-bottombar} / -2);
         margin-left:       calc(#{$infographic-title-bottombar} / -2);
+        margin-left:       ($infographic-title-bottombar / -2);
         width:             $infographic-title-bottombar;
         height:            2px;
         color:             transparent;
@@ -44,24 +47,39 @@
       left:              0;
       right:             0;
       width:             100%;
-      height:            100%;
+      height:            $infographic-img-height;
       background-color:  $primary-color-dark;
       overflow:          hidden;
       transition:        0.4s;
       opacity:           0;
+      z-index:           $index-6;
+      font-size:         $font-size-1;
+      padding:           0 20px;
 
       .infographic--desc {
         color:             $white-color;
-        //line-height:       $infographic-img-height;
+        line-height:       $infographic-img-height;
         height:            100%;
       }
     }
 
     .infographic-img {
+      position:          relative;
       display:           inline-block;
       width:             100%;
-      max-height:        $infographic-img-height;
-      border:            1px solid $primary-color-light-dark;
+      height:            $infographic-img-height;
+      
+      .infographic--img {
+        position:          absolute;
+        top:               50%;
+        left:              50%;
+        width:             100%;
+        transform:         translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform:     translate(-50%, -50%);
+        -moz-transform:    translate(-50%, -50%);
+        display:           inline-block;
+      }
     }
   }
 

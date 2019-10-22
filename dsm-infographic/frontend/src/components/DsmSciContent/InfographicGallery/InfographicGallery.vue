@@ -1,33 +1,14 @@
 <template>
   <div id="infographicGallery" class="infographic-gallery">
     <div id="infographicWrap" class="infographic-wrap">
-      <infographic-content contentId="1" title="Test-1" desc="Test-1 Desc" imgLink="http://localhost:3000/infographic/1/1.PNG"/>
-      <infographic-content contentId="2" title="Test-2" desc="Test-2 Desc" imgLink="http://localhost:3000/infographic/1/2.PNG"/>
-      <infographic-content contentId="3" title="Test-3" desc="Test-3 Desc" imgLink="http://localhost:3000/infographic/1/3.PNG"/>
-      <infographic-content contentId="4" title="Test-4" desc="Test-4 Desc" imgLink="http://localhost:3000/infographic/1/4.PNG"/>
-      <infographic-content contentId="5" title="Test-5" desc="Test-5 Desc" imgLink="http://localhost:3000/infographic/1/5.PNG"/>
-      <infographic-content contentId="1" title="Test-1" desc="Test-1 Desc" imgLink="http://localhost:3000/infographic/1/6.PNG"/>
-      <infographic-content contentId="2" title="Test-2" desc="Test-2 Desc" imgLink="http://localhost:3000/infographic/1/7.PNG"/>
-      <infographic-content contentId="3" title="Test-3" desc="Test-3 Desc" imgLink="http://localhost:3000/infographic/1/1.PNG"/>
-      <infographic-content contentId="4" title="Test-4" desc="Test-4 Desc" imgLink="http://localhost:3000/infographic/1/2.PNG"/>
-      <infographic-content contentId="5" title="Test-5" desc="Test-5 Desc" imgLink="http://localhost:3000/infographic/1/3.PNG"/>
-      <infographic-content contentId="1" title="Test-1" desc="Test-1 Desc" imgLink="http://localhost:3000/infographic/1/4.PNG"/>
-      <infographic-content contentId="2" title="Test-2" desc="Test-2 Desc" imgLink="http://localhost:3000/infographic/1/5.PNG"/>
-      <infographic-content contentId="3" title="Test-3" desc="Test-3 Desc" imgLink="http://localhost:3000/infographic/1/6.PNG"/>
-      <infographic-content contentId="4" title="Test-4" desc="Test-4 Desc" imgLink="http://localhost:3000/infographic/1/7.PNG"/>
-      <infographic-content contentId="5" title="Test-5" desc="Test-5 Desc" imgLink="http://localhost:3000/infographic/1/1.PNG"/>
-      <infographic-content contentId="1" title="Test-1" desc="Test-1 Desc" imgLink="http://localhost:3000/infographic/1/2.PNG"/>
-      <infographic-content contentId="2" title="Test-2" desc="Test-2 Desc" imgLink="http://localhost:3000/infographic/1/3.PNG"/>
-      <infographic-content contentId="3" title="Test-3" desc="Test-3 Desc" imgLink="http://localhost:3000/infographic/1/4.PNG"/>
-      <infographic-content contentId="4" title="Test-4" desc="Test-4 Desc" imgLink="http://localhost:3000/infographic/1/5.PNG"/>
-      <infographic-content contentId="5" title="Test-5" desc="Test-5 Desc" imgLink="http://localhost:3000/infographic/1/6.PNG"/>
-      <infographic-content contentId="1" title="Test-1" desc="Test-1 Desc" imgLink="http://localhost:3000/infographic/1/7.PNG"/>
-      <infographic-content contentId="5" title="Test-5" desc="Test-5 Desc" imgLink="http://localhost:3000/infographic/1/1.PNG"/>
-      <infographic-content contentId="1" title="Test-1" desc="Test-1 Desc" imgLink="http://localhost:3000/infographic/1/2.PNG"/>
-      <infographic-content contentId="2" title="Test-2" desc="Test-2 Desc" imgLink="http://localhost:3000/infographic/1/3.PNG"/>
-      <infographic-content contentId="3" title="Test-3" desc="Test-3 Desc" imgLink="http://localhost:3000/infographic/1/4.PNG"/>
-      <infographic-content contentId="4" title="Test-4" desc="Test-4 Desc" imgLink="http://localhost:3000/infographic/1/5.PNG"/>
-      <infographic-content contentId="5" title="Test-5" desc="Test-5 Desc" imgLink="http://localhost:3000/infographic/1/6.PNG"/>
+      <infographic-content
+        v-for="info in infos"
+        :key="info.contentId"
+        v-bind:contentId="info.contentId"
+        v-bind:title="info.title"
+        v-bind:desc="info.desc"
+        v-bind:imgLink="info.img"
+      />
     </div>
   </div>
 </template>
@@ -37,6 +18,85 @@ import InfographicContent from '@/components/DsmSciContent/InfographicGallery/In
 
 export default {
   name: 'infographic-gallery',
+  data() {
+    return {
+      infos: [
+        {
+          contentId: '1',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '2',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '3',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '4',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '5',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '6',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '7',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '8',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '9',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '10',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+        {
+          contentId: '11',
+          title: 'Hello',
+          desc: 'world',
+          img: 'http://localhost:3000/info/1.PNG',
+        },
+      ],
+      clickInfo: {
+        clickCheck: false,
+        contentId: '',
+        title: '',
+        desc: '',
+        img: '',
+      },
+    };
+  },
   components: {
     'infographic-content': InfographicContent,
   },

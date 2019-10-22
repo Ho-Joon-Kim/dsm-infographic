@@ -48,12 +48,19 @@ $header-color:                    $white-color !default;
 /*                        
    Other                  
    ========================================================================== */
-$index-fir:                       999 !important;
-$index-sec:                       998 !important;
+$index-0:                        9999 !important;
+$index-1:                        8888 !important;
+$index-2:                        7777 !important;
+$index-3:                        6666 !important;
+$index-4:                        5555 !important;
+$index-5:                        4444 !important;
+$index-6:                        3333 !important;
+$index-7:                        2222 !important;
+$index-8:                        1111 !important;
+$index-9:                        1000 !important;
 
 /* header */
 $header-height:                   80px !default;
-
 $header-loginopen-width:          120px !default;
 $header-loginopen-height:         $header-height !default;
 
@@ -61,25 +68,28 @@ $header-loginopen-height:         $header-height !default;
 $login-content-width:             500px !default;
 $login-content-height:            301px !default;
 $login-border-radius:             20px !default;
-
 $login-closebtn-width:            40px !default;
 $login-closebtn-height:           40px !default;
-
 $login-form-padding-tb:           40px !default;
 $login-form-padding-lr:           50px !default;
-
 $login-inputwrap-height:          162px !default;
-
 $login-idpwwrap-height:           49px !default;
 $login-idpwwrap-bottom:           32px !default;
-
 $login-input-title-width:         35% !default;
 $login-input-title-lineheight:    51px !default; 
-
 $login-login-input-width:         65% !default;
-
 $login-submit-button-height:      60px !default;
 
 /* Infographic Gallery */
-$infographic-img-height:      468.89px !default;
-$infographic-title-bottombar: 180px !default;
+$infographic-img-height:          495.58px !default;
+$infographic-title-bottombar:     180px !default;
+$infographic-content-width:       25% !default;
+$infographic-content-margin:      10px !default;
+
+/* Infographic Detail */
+$detail-content-height:           600px !default;
+$detail-content-width:            800px !default;
+$detail-border-radius:            20px !default;
+$detail-closebtn-width:           60px !default;
+$detail-closebtn-height:          60px !default;
+
