@@ -8,11 +8,18 @@ export default {
   [types.UNAME](state, uname) {
     state.uname = uname;
   },
-  [types.ERROR_STATE](state, errorState) {
-    state.errorState = errorState;
+  [types.LOGIN_ERROR_STATE](state, loginErrorState) {
+    state.loginErrorState = loginErrorState;
   },
   [types.IS_AUTH](state, isAuth) {
     state.isAuth = isAuth;
+  },
+  /* Survey */
+  [types.SURVEY_ERROR_STATE](state, surveyErrorState) {
+    state.surveyErrorState = surveyErrorState;
+  },
+  [types.SURVEY_IS_OK](state, surveyIsOk) {
+    state.surveyIsOk = surveyIsOk;
   },
   /* Click Infographic */
   [types.CLICK_CONTENT_ID](state, clickContentId) {

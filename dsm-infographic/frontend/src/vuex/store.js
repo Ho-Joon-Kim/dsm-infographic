@@ -10,9 +10,11 @@ const state = {
   /* Login */
   uid: '',
   uname: '',
-  errorState: '',
+  surveyErrorState: '',
   isAuth: false,
-
+  /* Survey */
+  surveyErrorState: '',
+  surveyIsOk: false,
   /* Click Infographic */
   clickContentId: '',
 };
