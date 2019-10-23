@@ -10,13 +10,15 @@ const state = {
   /* Login */
   uid: '',
   uname: '',
-  surveyErrorState: '',
+  loginErrorState: '',
   isAuth: false,
   /* Survey */
   surveyErrorState: '',
   surveyIsOk: false,
   /* Click Infographic */
   clickContentId: '',
+  /* Modal */
+  onModal: false,
 };
 
 export default new Vuex.Store({

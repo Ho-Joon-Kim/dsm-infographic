@@ -1,5 +1,5 @@
 <template>
-  <div id="infographicGallery" class="infographic-gallery">
+  <div id="infographicGallery" class="infographic-gallery" :class="{ notScroll: onModal}">
     <div id="infographicWrap" class="infographic-wrap">
       <infographic-content
         v-for="info in infos"
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import InfographicContent from '@/components/DsmSciContent/InfographicGallery/InfographicContent.vue';
 
 export default {
@@ -99,6 +100,11 @@ export default {
   },
   components: {
     'infographic-content': InfographicContent,
+  },
+  computed: {
+    ...mapGetters({
+      onModal: 'getOnModal',
+    }),
   },
 };
 </script>

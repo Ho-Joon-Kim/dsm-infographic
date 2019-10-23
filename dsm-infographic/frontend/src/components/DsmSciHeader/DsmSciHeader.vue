@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 import DsmSciLogin from './DsmSciLogin.vue';
 
 export default {
@@ -61,13 +61,16 @@ export default {
     ...mapState(['isAuth']),
   },
   methods: {
+    ...mapActions(['onClickModal']),
     clickLoginOpen() {
       this.loginHeight = '100%';
       this.loginDisplay = 'inline-block';
+      this.onClickModal(true);
     },
     clickLoginClose() {
       this.loginHeight = '0%';
       this.loginDisplay = 'none';
+      this.onClickModal(false);
     },
   },
 };

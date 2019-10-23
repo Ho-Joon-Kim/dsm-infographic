@@ -84,7 +84,7 @@ export default {
       return this.display;
     },
     ...mapGetters({
-      errorState: 'getErrorState',
+      loginErrorState: 'getLoginErrorState',
     }),
   },
   methods: {

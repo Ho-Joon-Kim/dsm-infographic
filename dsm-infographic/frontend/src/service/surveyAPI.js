@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const postSurveyInfo = (q1,q2, contentId, uid) => axios.post('api/survey', {
-  q1: q1,
-  q2: q2,
+const postSurveyInfo = (q1, q2, contentId, uid) => axios.post('api/survey', {
+  q1,
+  q2,
   infoNum: contentId,
-  uid: uid,
+  uid,
 });
 
 export default {

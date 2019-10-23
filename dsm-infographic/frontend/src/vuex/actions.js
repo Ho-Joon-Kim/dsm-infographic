@@ -10,6 +10,8 @@ import {
   SURVEY_IS_OK,
   /* Click Infographic */
   CLICK_CONTENT_ID,
+  /* Modal */
+  ON_MODAL,
 } from './mutation_types';
 
 /* Login */
@@ -47,7 +49,7 @@ const setSurveyErrorState = ({ commit }, data) => {
 
 const setSurveyIsOk = ({ commit }, data) => {
   commit(SURVEY_IS_OK, data);
-}
+};
 
 const processSurveyResponse = (store, surveyResponse) => {
   if (surveyResponse.output) {
@@ -64,6 +66,12 @@ const setClickContentId = ({ commit }, data) => {
   commit(CLICK_CONTENT_ID, data);
 };
 
+/* Modal */
+const setOnModal = ({ commit }, data) => {
+  commit(ON_MODAL, data);
+  console.log(data);
+};
+
 /* Export */
 export default {
   async login(store, { uid, pswd }) {
@@ -72,12 +80,17 @@ export default {
     setUID(store, uid);
     return store.getters.getIsAuth;
   },
-  async survey(store, {q1, q2, contentId, uid}) {
+  async survey(store, {
+    q1, q2, contentId, uid,
+  }) {
     const surveyResponse = await api.survey(q1, q2, contentId, uid);
     processSurveyResponse(store, surveyResponse.data);
     return store.getters.getSurveyIsOk;
   },
   clickContent(store, { contentId }) {
     setClickContentId(store, contentId);
+  },
+  onClickModal(store, { onModal }) {
+    setOnModal(store, onModal);
   },
 };

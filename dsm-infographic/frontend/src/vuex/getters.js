@@ -9,4 +9,6 @@ export default {
   getSurveyIsOk: state => state.surveyIsOk,
   /* Click Infographic */
   getClickContendId: state => state.clickContentId,
+  /* Modal */
+  getOnModal: state => state.onModal,
 };

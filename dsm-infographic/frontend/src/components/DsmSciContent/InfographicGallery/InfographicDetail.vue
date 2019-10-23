@@ -31,17 +31,17 @@
             <h2>과학적 사고력</h2>
             <li>-기후 변화에 대하여 충실하게 다루였는가?</li>
             <li>-과학적 근거를 토대로 작성하였는가?</li>
-            <li>-과학적을 빠지거나 부족한 부분은 없는가?</li></br>
-            <input type="radio" name="score3" value="과학활동에 대한 과학적 사고력이 우수함" >과학활동에 대한 과학적 사고력이 우수함</input><br> 
-            <input type="radio" name="score2" value="과학활동에 대한 과학적 사고력이 보통임" >과학활동에 대한 과학적 사고력이 보통임</input><br>
-            <input type="radio" name="score1" value="과학활동에 대한 과학적 사고력이 미흡함" >과학활동에 대한 과학적 사고력이 미흡함</input><br>
+            <li>-과학적을 빠지거나 부족한 부분은 없는가?</li><br>
+            <input type="radio" name="q1" value="3"/><p>과학활동에 대한 과학적 사고력이 우수함</p><br>
+            <input type="radio" name="q1" value="2"/><p>과학활동에 대한 과학적 사고력이 보통임</p><br>
+            <input type="radio" name="q1" value="1"/><p>과학활동에 대한 과학적 사고력이 미흡함</p><br>
           </ul>
           <ul class="q2">
             <h2>산출물 완성도</h2>
             <li>-설명자료가 이해하기 쉽게 잘 설명되어 있으며 집중할 수 있게 만들었는가?</li><br>
-            <input type="radio" name="score3" value="과학활동 산출물이 우수함" >과학활동 산출물이 우수함</input><br> 
-            <input type="radio" name="score2" value="과학활동 산출물이 보통임" >과학활동 산출물이 보통임</input><br>
-            <input type="radio" name="score1" value="과학활동 산출물이 미흡함" >과학활동 산출물이 미흡함</input><br>
+            <input type="radio" name="q2" value="3"/><p>과학활동 산출물이 우수함</p><br>
+            <input type="radio" name="q2" value="2"/><p>과학활동 산출물이 보통임</p><br>
+            <input type="radio" name="q2" value="1"/><p>과학활동 산출물이 미흡함</p><br>
           </ul>
         </div>
       </div>

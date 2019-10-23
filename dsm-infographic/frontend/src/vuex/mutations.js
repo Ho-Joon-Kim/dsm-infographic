@@ -25,4 +25,8 @@ export default {
   [types.CLICK_CONTENT_ID](state, clickContentId) {
     state.clickContentId = clickContentId;
   },
+  /* Modal */
+  [types.ON_MODAL](state, onModal) {
+    state.onModal = onModal;
+  },
 };

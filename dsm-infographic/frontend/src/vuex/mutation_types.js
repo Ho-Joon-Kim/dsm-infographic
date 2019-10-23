@@ -8,3 +8,5 @@ export const SURVEY_ERROR_STATE = 'SURVEY_ERROR_STATE';
 export const SURVEY_IS_OK = 'SURVEY_IS_OK';
 /* Click Infographic */
 export const CLICK_CONTENT_ID = 'CLICK_CONTENT_ID';
+/* Modal */
+export const ON_MODAL = 'ON_MODAL';

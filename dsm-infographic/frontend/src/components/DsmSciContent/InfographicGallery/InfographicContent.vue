@@ -61,13 +61,16 @@ export default {
   },
   methods: {
     ...mapActions(['clickContent']),
+    ...mapActions(['onClickModal']),
     clickInfo() {
       this.isClick = true;
       this.clickContent({ contentId: this.contentId });
+      this.onClickModal({ onModal: true });
     },
     clickDetailClose() {
       this.isClick = false;
       this.clickContent({ contentId: '' });
+      this.onClickModal({ onModal: false });
     },
   },
 };
