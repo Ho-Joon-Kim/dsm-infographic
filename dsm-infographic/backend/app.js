@@ -11,7 +11,7 @@ var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var infoRouter = require('./routes/info');
 var descRouter = require('./routes/desc');
-//var serveyRouter = require('./routes/servey');
+var surveyRouter = require('./routes/survey');
 
 var app = express();
 
@@ -30,9 +30,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', mainRouter);
 app.use('/api/index', indexRouter);
 app.use('/api/login', loginRouter);
-app.use('/api/info', infoRouter);
-app.use('/api/desc', descRouter);
-//app.use('/api/servey', serveyRouter);
+app.use('/api/info/img', infoRouter);
+app.use('/api/info/desc', descRouter);
+app.use('/api/survey', surveyRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

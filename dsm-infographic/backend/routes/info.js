@@ -3,7 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var info_id = req.query.img
+    var info_id = req.query.imgid
 
 
     var filename = `../public/info/${info_id}.png`;
