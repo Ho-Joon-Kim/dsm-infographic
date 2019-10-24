@@ -20,6 +20,7 @@ $global-font-family:              $font-base !default;
 $header-font-family:              $font-116watermelon !default;
 
 $base-font-size:                  16px !default;
+$font-size-0:                     2rem !default; //30px
 $font-size-1:                     1.75rem !default; // 28px
 $font-size-2:                     1.25rem !default; // 20px
 $font-size-3:                     1.125rem !default; //18px
@@ -37,6 +38,7 @@ $black-color-light:               #1e1e1e !default;
 $primary-color:                   #19b6b6 !default;
 $primary-color-light-dark:        #1cacac !default;
 $primary-color-dark:              #0e7474 !default;
+$primary-color-dark-dark:         #0c6161 !default;
 $focus-color:                     $primary-color !default;
 
 $base-bgcolor:                    $white-color !default;
@@ -87,8 +89,8 @@ $infographic-content-width:       25% !default;
 $infographic-content-margin:      10px !default;
 
 /* Infographic Detail */
-$detail-content-height:           600px !default;
-$detail-content-width:            800px !default;
+$detail-content-height:           700px !default;
+$detail-content-width:            933.333px !default;
 $detail-border-radius:            20px !default;
 $detail-closebtn-width:           60px !default;
 $detail-closebtn-height:          60px !default;
