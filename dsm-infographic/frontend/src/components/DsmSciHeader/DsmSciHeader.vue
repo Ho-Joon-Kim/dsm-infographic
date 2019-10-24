@@ -65,12 +65,12 @@ export default {
     clickLoginOpen() {
       this.loginHeight = '100%';
       this.loginDisplay = 'inline-block';
-      this.onClickModal(true);
+      this.onClickModal({ onModal: true });
     },
     clickLoginClose() {
       this.loginHeight = '0%';
       this.loginDisplay = 'none';
-      this.onClickModal(false);
+      this.onClickModal({ onModal: false });
     },
   },
 };
