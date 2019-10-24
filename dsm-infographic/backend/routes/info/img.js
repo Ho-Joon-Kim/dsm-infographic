@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
     var info_id = req.query.imgid
 
 
-    var filename = `../public/info/${info_id}.png`;
+    var filename = `../../public/info/${info_id}.png`;
     fs.readFile(filename,              //파일 읽기
         function (err, data)
         {
