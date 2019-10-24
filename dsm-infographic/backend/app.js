@@ -9,8 +9,8 @@ var bodyParser = require('body-parser');
 var mainRouter = require('./routes/');
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
-var infoRouter = require('./routes/info');
-var descRouter = require('./routes/desc');
+var imgRouter = require('./routes/info/img');
+var descRouter = require('./routes/info/desc');
 var surveyRouter = require('./routes/survey');
 
 var app = express();
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', mainRouter);
 app.use('/api/index', indexRouter);
 app.use('/api/login', loginRouter);
-app.use('/api/info/img', infoRouter);
+app.use('/api/info/img', imgRouter);
 app.use('/api/info/desc', descRouter);
 app.use('/api/survey', surveyRouter);
 
