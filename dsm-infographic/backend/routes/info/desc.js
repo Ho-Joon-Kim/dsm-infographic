@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-var survey = require("public/survey.json");
+var survey = require("../../public/survey.json");
 
 
 router.get('/', function(req, res, next) {
