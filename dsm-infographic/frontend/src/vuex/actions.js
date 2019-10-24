@@ -69,7 +69,6 @@ const setClickContentId = ({ commit }, data) => {
 /* Modal */
 const setOnModal = ({ commit }, data) => {
   commit(ON_MODAL, data);
-  console.log(data);
 };
 
 /* Export */

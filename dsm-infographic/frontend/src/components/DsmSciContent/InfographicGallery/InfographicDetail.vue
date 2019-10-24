@@ -32,17 +32,60 @@
             <li>-기후 변화에 대하여 충실하게 다루였는가?</li>
             <li>-과학적 근거를 토대로 작성하였는가?</li>
             <li>-과학적을 빠지거나 부족한 부분은 없는가?</li><br>
-            <input type="radio" name="q1" value="3"/><p>과학활동에 대한 과학적 사고력이 우수함</p><br>
-            <input type="radio" name="q1" value="2"/><p>과학활동에 대한 과학적 사고력이 보통임</p><br>
-            <input type="radio" name="q1" value="1"/><p>과학활동에 대한 과학적 사고력이 미흡함</p><br>
+            <input
+              type="radio"
+              name="q1"
+              value="3"
+              id="q1-score1"
+              v-model="q1"
+            /><label for="q1-score1">과학활동에 대한 과학적 사고력이 우수함</label><br>
+            <input
+              type="radio"
+              name="q1"
+              value="2"
+              id="q1-score2"
+              v-model="q1"
+            /><label for="q1-score2">과학활동에 대한 과학적 사고력이 보통임</label><br>
+            <input
+              type="radio"
+              name="q1"
+              value="1"
+              id="q1-score1"
+              v-model="q1"
+            /><label for="q1-score1">과학활동에 대한 과학적 사고력이 미흡함</label><br>
           </ul>
           <ul class="q2">
             <h2>산출물 완성도</h2>
             <li>-설명자료가 이해하기 쉽게 잘 설명되어 있으며 집중할 수 있게 만들었는가?</li><br>
-            <input type="radio" name="q2" value="3"/><p>과학활동 산출물이 우수함</p><br>
-            <input type="radio" name="q2" value="2"/><p>과학활동 산출물이 보통임</p><br>
-            <input type="radio" name="q2" value="1"/><p>과학활동 산출물이 미흡함</p><br>
+            <input
+              type="radio"
+              name="q2"
+              value="3"
+              id="q2-score3"
+              v-model="q2"
+            /><label for="q2-score3">과학활동 산출물이 우수함</label><br>
+            <input
+              type="radio"
+              name="q2"
+              value="2"
+              id="q3-score2"
+              v-model="q2"
+            /><label for="q3-score2">과학활동 산출물이 보통임</label><br>
+            <input
+              type="radio"
+              name="q2"
+              value="1"
+              id="q3-score1"
+              v-model="q2"
+            /><label for="q3-score1">과학활동 산출물이 미흡함</label>
           </ul>
+          <button
+            v-on:click="onSubmit"
+            type="submit"
+            id="surveySubmit"
+            class="surveySubmit"
+          >
+          평가 제출</button>
         </div>
       </div>
       <button
@@ -54,6 +97,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'infographic-detail',
   props: {
@@ -65,14 +110,35 @@ export default {
   },
   data() {
     return {
+      q1: '',
+      q2: '',
     };
   },
   computed: {
+    ...mapGetters(['getUID']),
+    ...mapGetters(['getSurveyIsOk']),
     notClickCheck() {
       return !this.clickCheck;
     },
   },
   methods: {
+    ...mapActions(['survey']),
+    async onSubmit() {
+      await this.survey({
+        q1: this.q1,
+        q2: this.q2,
+        contentId: this.contentId,
+        uid: this.getUID,
+      });
+      // BackEnd단에서 Survey API 개발 후,
+      // 정상 동작이 확인되면 아래의 테스트 코드를 지운다.
+      if (this.getSurveyIsOk) {
+        console.log('제출 성공');
+      } else {
+        console.log('제출 실패');
+      }
+      this.clickDetailClose();
+    },
     clickDetailClose() {
       this.$emit('click-detail-close');
     },
