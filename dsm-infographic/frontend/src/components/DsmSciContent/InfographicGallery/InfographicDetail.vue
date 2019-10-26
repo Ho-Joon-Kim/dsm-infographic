@@ -18,7 +18,10 @@
         title="이미지를 크게 보려면 클릭하세요"
       ><img class="detail--img" :src="imgLink" :alt="title">
       </div>
-      <div class="detail-info">
+      <div
+        v-if="getUID"
+        class="detail-info"
+      >
         <div class="detail--info">
           <div class="detail-title">
             <h2>{{ title }}</h2>
@@ -157,6 +160,13 @@
             class="survey-submit"
           >
           평가 제출</button>
+        </div>
+      </div>
+      <div v-else>
+        <div class="detail-info">
+          <div class="not-login">
+            <p>로그인이 필요합니다!</p>
+          </div>
         </div>
       </div>
     </div>
