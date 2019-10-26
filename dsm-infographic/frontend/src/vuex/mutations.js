@@ -25,6 +25,16 @@ export default {
   [types.CLICK_CONTENT_ID](state, clickContentId) {
     state.clickContentId = clickContentId;
   },
+  /* Click Detail Image */
+  [types.DETAIL_IMAGE](state, detailImage) {
+    state.detailImage = detailImage;
+  },
+  [types.DETAIL_IMG_LINK](state, detailImgLink) {
+    state.detailImgLink = detailImgLink;
+  },
+  [types.DETAIL_IMG_TITLE](state, detailImgTitle) {
+    state.detailImgTitle = detailImgTitle;
+  },
   /* Modal */
   [types.ON_MODAL](state, onModal) {
     state.onModal = onModal;

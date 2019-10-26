@@ -17,6 +17,10 @@ const state = {
   surveyIsOk: false,
   /* Click Infographic */
   clickContentId: '',
+  /* Click Detail Image */
+  detailImgLink: '',
+  detailImgTitle: '',
+  detailImage: false,
   /* Modal */
   onModal: false,
 };

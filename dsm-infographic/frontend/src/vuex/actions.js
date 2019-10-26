@@ -10,6 +10,10 @@ import {
   SURVEY_IS_OK,
   /* Click Infographic */
   CLICK_CONTENT_ID,
+  /* Click Detail Image */
+  DETAIL_IMAGE,
+  DETAIL_IMG_LINK,
+  DETAIL_IMG_TITLE,
   /* Modal */
   ON_MODAL,
 } from './mutation_types';
@@ -66,6 +70,18 @@ const setClickContentId = ({ commit }, data) => {
   commit(CLICK_CONTENT_ID, data);
 };
 
+/* Click Detail Image */
+const setDetailImgTitle = ({ commit }, data) => {
+  commit(DETAIL_IMG_TITLE, data);
+};
+const setDetailImgLink = ({ commit }, data) => {
+  commit(DETAIL_IMG_LINK, data);
+};
+
+const setDetailImage = ({ commit }, data) => {
+  commit(DETAIL_IMAGE, data);
+};
+
 /* Modal */
 const setOnModal = ({ commit }, data) => {
   commit(ON_MODAL, data);
@@ -95,5 +111,10 @@ export default {
   },
   onClickModal(store, { onModal }) {
     setOnModal(store, onModal);
+  },
+  clickDetailImage(store, { detailImage, detailImgLink, detailImgTitle }) {
+    setDetailImgTitle(store, detailImgTitle);
+    setDetailImgLink(store, detailImgLink);
+    setDetailImage(store, detailImage);
   },
 };

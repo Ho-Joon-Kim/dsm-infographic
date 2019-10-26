@@ -12,8 +12,11 @@
         type="button"
         v-on:click="clickDetailClose"
       >&times;</button>
-      <div class="detail-img">
-        <img class="detail--img" :src="imgLink" :alt="title">
+      <div
+        class="detail-img"
+        v-on:click="clickDetailImageOpen"
+        title="이미지를 크게 보려면 클릭하세요"
+      ><img class="detail--img" :src="imgLink" :alt="title">
       </div>
       <div class="detail-info">
         <div class="detail--info">
@@ -184,7 +187,11 @@ export default {
   computed: {
     ...mapGetters(['getUID']),
     ...mapGetters(['getSurveyIsOk']),
+    ...mapGetters({
+      detailImage: 'getDetailImage',
+    }),
     notClickCheck() {
+      this.clickDetailImageOpen();
       return !this.clickCheck;
     },
     getQ1Score() {
@@ -201,7 +208,17 @@ export default {
     },
   },
   methods: {
+    ...mapActions(['onClickModal']),
     ...mapActions(['survey']),
+    ...mapActions(['clickDetailImage']),
+    clickDetailImageOpen() {
+      this.clickDetailImage({
+        detailImage: true,
+        detailImgLink: this.imgLink,
+        detailImgTitle: this.title,
+      });
+      this.onClickModal({ onModal: false });
+    },
     qErrorCheck(qId) {
       if (this.q1Error !== '' && qId === 1) {
         return true;
@@ -212,6 +229,9 @@ export default {
       return false;
     },
     qError(qId) {
+      if (!this.detailImage) {
+        this.onClickModal({ onModal: true });
+      }
       if (this.q1 === '' && qId === 1) {
         this.q1Error = '과학적 사고력에 대한 평가가 완료되지 않았습니다.';
       } else if (qId === 1) {
