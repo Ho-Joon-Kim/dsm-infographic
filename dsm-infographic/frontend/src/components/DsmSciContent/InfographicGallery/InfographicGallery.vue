@@ -1,13 +1,10 @@
 <template>
-  <div id="infographicGallery" class="infographic-gallery" :class="{ notScroll: onModal}">
+  <div id="infographicGallery" class="infographic-gallery">
     <div id="infographicWrap" class="infographic-wrap">
       <infographic-content
-        v-for="info in infos"
+        v-for="info in this.infoContents"
         :key="info.contentId"
         v-bind:contentId="info.contentId"
-        v-bind:title="info.title"
-        v-bind:desc="info.desc"
-        v-bind:imgLink="info.img"
       />
     </div>
   </div>
@@ -21,74 +18,9 @@ export default {
   name: 'infographic-gallery',
   data() {
     return {
-      infos: [
-        {
-          contentId: '1',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '2',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '3',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '4',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '5',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '6',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '7',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '8',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '9',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '10',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-        {
-          contentId: '11',
-          title: 'Hello',
-          desc: 'world',
-          img: 'http://localhost:3000/info/1.PNG',
-        },
-      ],
+      contentIds: [],
+      contentCnt: 27,
+      currentContentId: 0,
       clickInfo: {
         clickCheck: false,
         contentId: '',
@@ -105,6 +37,23 @@ export default {
     ...mapGetters({
       onModal: 'getOnModal',
     }),
+    infoContents() {
+      this.initContents();
+      return this.contentIds;
+    },
+  },
+  methods: {
+    initContents() {
+      for (let i = 0; i < this.contentCnt; i += 1) {
+        this.nextContentId();
+        this.contentIds[i] = { contentId: String(this.currentContentId) };
+      }
+    },
+    nextContentId() {
+      if (this.currentContentId < this.contentCnt) {
+        this.currentContentId += 1;
+      }
+    },
   },
 };
 </script>
