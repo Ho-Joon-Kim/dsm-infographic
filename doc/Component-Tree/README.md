@@ -18,13 +18,13 @@ App
 
 - - - DsmSciContent
 
-- - - - InfographicBanner
-
 - - - - InfograhpicGallery
 
 - - - - - InfographicContent
 
 - - - - - InfographicDetail
+
+- - - DetailImage
 
 - - Admin
 
