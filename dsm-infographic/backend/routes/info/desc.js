@@ -9,10 +9,6 @@ router.get('/', function(req, res, next) {
 
     var dsec = fs.readFileSync(`public/info/${desc_id}.txt`,'utf8');
     res.send({"desc" : dsec,title : survey[desc_id]["infoN"]})
-
-
-
-
 });
 
 
