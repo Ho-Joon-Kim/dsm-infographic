@@ -86,6 +86,10 @@ export default {
     processSurveyResponse(store, surveyResponse.data);
     return store.getters.getSurveyIsOk;
   },
+  async contentInfo(store, { contentId }) {
+    const contentResponse = await api.contentInfo(contentId);
+    return contentResponse;
+  },
   clickContent(store, { contentId }) {
     setClickContentId(store, contentId);
   },

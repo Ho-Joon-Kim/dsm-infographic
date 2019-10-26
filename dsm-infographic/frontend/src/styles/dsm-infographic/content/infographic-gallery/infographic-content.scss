@@ -5,7 +5,7 @@
   width: -moz-calc(#{$infographic-content-width} - #{$infographic-content-margin} * 2);
   width: -ms-calc(#{$infographic-content-width} - #{$infographic-content-margin} * 2);
   width: calc(#{$infographic-content-width} - #{$infographic-content-margin} * 2);
-  margin: 10px;
+  margin: 0 10px;
   margin-bottom: 50px;
   float: left;
 
@@ -15,7 +15,7 @@
     .infographic-info {
       .infographic-desc {
         width: 100%;
-        opacity: 0.8;
+        opacity: 0.9;
       }
     }
     
@@ -40,9 +40,11 @@
 
   .infographic-info {
     position: relative;
+    height: $infographic-img-height - 1;
 
     .infographic-desc {
       position: absolute;
+      display: table;
       top: 0;
       left: 0;
       right: 0;
@@ -53,13 +55,14 @@
       transition: 0.4s;
       opacity: 0;
       z-index: $index-6;
-      font-size: $font-size-1;
+      font-size: $font-size-2;
       padding: 0 20px;
 
       .infographic--desc {
+        display: table-cell;
+        text-align: left;
         color: $white-color;
-        line-height: $infographic-img-height;
-        height: 100%;
+        vertical-align: middle;
       }
     }
 
@@ -84,6 +87,7 @@
   }
 
   .infographic-title {
+    padding-top: 20px;
     position: relative;
     color: $black-color-light;
   }
