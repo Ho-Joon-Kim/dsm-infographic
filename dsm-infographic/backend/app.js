@@ -12,6 +12,7 @@ var loginRouter = require('./routes/login');
 var imgRouter = require('./routes/info/img');
 var descRouter = require('./routes/info/desc');
 var surveyRouter = require('./routes/survey');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/api/login', loginRouter);
 app.use('/api/info/img', imgRouter);
 app.use('/api/info/desc', descRouter);
 app.use('/api/survey', surveyRouter);
+app.use('/api/survey/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
