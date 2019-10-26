@@ -92,7 +92,9 @@ export default {
   async login(store, { uid, pswd }) {
     const loginResponse = await api.login(uid, pswd);
     processLoginResponse(store, loginResponse.data);
-    setUID(store, uid);
+    if(store.getters.getIsAuth) {
+      setUID(store, uid);
+    }
     return store.getters.getIsAuth;
   },
   async survey(store, {
