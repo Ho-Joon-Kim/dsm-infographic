@@ -5,7 +5,7 @@ var user = require("../public/user.json");
 var survey = require("../public/survey.json");
 
 
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     var q1_answer = req.body.q1;
     var q2_answer = req.body.q2;
     var infoNum = req.body.infoNum;
