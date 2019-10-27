@@ -28,5 +28,7 @@ App
 
 - - Admin
 
+- - - SurveyResult
+
 - DsmSciFooter
 ```
