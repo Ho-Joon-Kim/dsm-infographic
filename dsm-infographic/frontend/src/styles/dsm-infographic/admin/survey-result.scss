@@ -1,0 +1,33 @@
+.survey-result {
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
+  border-bottom: 3px dotted $primary-color;
+
+  .survey-info {
+    float: left;
+    width: 40%;
+    
+    .info-id,
+    .info-title {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  .survey--result {
+    float: left;
+    width: 40%;
+
+    .result-q1,
+    .result-q2 {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  .survey--result-total {
+    float: left;
+    width: 20%;
+  }
+}

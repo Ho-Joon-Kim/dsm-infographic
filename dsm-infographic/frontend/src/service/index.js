@@ -11,6 +11,10 @@ export default {
     const surveyResponse = await surveyAPI.survey(q1, q2, contentId, uid);
     return surveyResponse;
   },
+  async surveyResult(contentId) {
+    const surveyResultResponse = await surveyAPI.surveyResult(contentId);
+    return surveyResultResponse;
+  },
   async contentInfo(contentId) {
     const contentResponse = await contentAPI.contentInfo(contentId);
     return contentResponse;

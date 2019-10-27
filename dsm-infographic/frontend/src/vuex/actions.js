@@ -122,6 +122,16 @@ export default {
     const contentResponse = await api.contentInfo(contentId);
     return contentResponse;
   },
+  async surveyResult(store, { contentId }) {
+    if (
+      store.getters.getUID === 'admin'
+      || store.getters.getUID === 'dev'
+    ) {
+      const surveyResultResponse = await api.surveyResult(contentId);
+      return surveyResultResponse;
+    }
+    return false;
+  },
   clickContent(store, { contentId }) {
     setClickContentId(store, contentId);
   },

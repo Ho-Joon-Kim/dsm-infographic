@@ -1,0 +1,80 @@
+.admin {
+  margin-top: 80px;
+  padding-top: 50px;
+  padding-bottom: 60px;
+
+  .admin-info {
+    width: 100%;
+    text-align: center;
+    
+    .admin-title {
+      padding: 20px;
+      h1 {
+        color: $primary-color-light-dark;
+        font-size: $font-size-0;
+      }
+    }
+
+    .admin-desc {
+      padding-bottom: 10px;
+      p {
+        color: $primary-color-light-dark;
+        font-size: $font-size-2;
+      }
+    }
+  }
+
+  .survey-result-wrap {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+
+    .survey-result-list {
+      width: 80%;
+
+      .result-item {
+        width: 100%;
+        display: block;
+
+        .list-title {
+          background-color: $primary-color;
+          color: $white-color;
+          font-size: $font-size-3;
+          font-weight: bold;
+          display: inline-block;
+          width: 100%;
+          padding: 20px;
+          border-bottom: 3px dotted $primary-color;
+
+          .survey-info {
+            width: 40%;
+            float: left;
+
+            .info-id,
+            .info-title {
+              float: left;
+              width: 50%;
+            }
+          }
+
+          .survey--result {
+            width: 40%;
+            float: left;
+
+            .result-q1,
+            .result-q2 {
+              float: left;
+              width: 50%;
+            }
+          }
+
+          .survey--result-total {
+            float: left;
+            width: 20%;
+          }
+        }
+      }
+    }
+  }
+}
