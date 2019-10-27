@@ -13,6 +13,8 @@ var imgRouter = require('./routes/info/img');
 var descRouter = require('./routes/info/desc');
 var surveyRouter = require('./routes/survey');
 var adminRouter = require('./routes/admin');
+var survey_checkRouter = require('./routes/survey_check');
+var survey_secondRouter = require('./routes/survey_second');
 
 var app = express();
 
@@ -35,6 +37,8 @@ app.use('/api/info/img', imgRouter);
 app.use('/api/info/desc', descRouter);
 app.use('/api/survey', surveyRouter);
 app.use('/api/survey/admin', adminRouter);
+app.use('/api/survey/check', survey_checkRouter);
+app.use('/api/survey/second', survey_secondRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
