@@ -11,23 +11,27 @@ router.post('/', function(req, res, next) {
     var infoNum = req.body.infoNum;
     var id = req.body.id;
 
-
-    survey[infoNum]["q1"] = Number(survey[infoNum]["q1"])+Number(q1_answer);
-    survey[infoNum]["q2"] = Number(survey[infoNum]["q2"])+Number(q2_answer);
-
-    user[id]["info_s"] = `${user[id]["info_s"]} ${infoNum}`;
-
+    if(user[id]["info_m"] == infoNum)
+    {
+        res.send({output : "error"});
+    }
     
-    fs.writeFileSync('public/survey.json', JSON.stringify(survey), 'utf-8',function(){
+    if(user[id]["info_m"] != infoNum){
 
-    });
+        survey[infoNum]["q1"] = Number(survey[infoNum]["q1"])+Number(q1_answer);
+        survey[infoNum]["q2"] = Number(survey[infoNum]["q2"])+Number(q2_answer);
 
+        user[id]["info_s"] = `${user[id]["info_s"]} ${infoNum}`;
+    
+        fs.writeFileSync('public/survey.json', JSON.stringify(survey), 'utf-8',function(){
+        });
 
-    fs.writeFileSync('public/user.json', JSON.stringify(user), 'utf-8',function(){
+        fs.writeFileSync('public/user.json', JSON.stringify(user), 'utf-8',function(){
+        });
+        res.send({output : "done"});
+    }
 
-    });
-
-    res.send({output : "done"});
+   
 });
 
 module.exports = router;
