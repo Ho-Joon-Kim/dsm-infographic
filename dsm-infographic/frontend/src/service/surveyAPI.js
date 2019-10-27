@@ -14,7 +14,7 @@ export default {
     const postSurveyInfoPromise = await postSurveyInfo(q1, q2, contentId, uid);
     return postSurveyInfoPromise;
   },
-  async getSurveyResult(contentId) {
+  async surveyResult(contentId) {
     const getSurveyResultPromise = await getSurveyResult(contentId);
     return getSurveyResultPromise;
   },

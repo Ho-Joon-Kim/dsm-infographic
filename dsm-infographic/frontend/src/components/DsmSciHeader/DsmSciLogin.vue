@@ -96,14 +96,12 @@ export default {
     }),
   },
   methods: {
+    ...mapActions(['onClickModal']),
     ...mapActions(['login']),
-    ...mapActions(['loginErrorClose']),
     async onSubmit() {
       await this.login({ uid: this.userId, pswd: this.userPw });
       this.clickLoginClose();
-    },
-    clickErrorClose() {
-      this.loginErrorClose();
+      this.onClickModal({ onModal: false });
     },
     clickLoginClose() {
       this.userId = '';
