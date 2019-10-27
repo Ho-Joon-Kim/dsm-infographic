@@ -12,8 +12,8 @@ router.post('/', function(req, res, next) {
     var id = req.body.id;
 
 
-    survey[infoNum]["q1"] = survey[infoNum]["q1"]+q1_answer;
-    survey[infoNum]["q2"] = survey[infoNum]["q2"]+q2_answer;
+    survey[infoNum]["q1"] = Number(survey[infoNum]["q1"])+Number(q1_answer);
+    survey[infoNum]["q2"] = Number(survey[infoNum]["q2"])+Number(q2_answer);
 
     user[id]["info_s"] = `${user[id]["info_s"]} ${infoNum}`;
 
