@@ -20,6 +20,9 @@ export default {
   [types.LOGIN_DISPLAY](state, loginDisplay) {
     state.loginDisplay = loginDisplay;
   },
+  [types.ADMIN_CHECK](state, adminCheck) {
+    state.adminCheck = adminCheck;
+  },
   /* Survey */
   [types.SURVEY_ERROR_STATE](state, surveyErrorState) {
     state.surveyErrorState = surveyErrorState;

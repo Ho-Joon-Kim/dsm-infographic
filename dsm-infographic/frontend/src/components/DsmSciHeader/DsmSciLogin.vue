@@ -83,6 +83,12 @@ export default {
       loginErrorState: 'getLoginErrorState',
     }),
     ...mapGetters({
+      isAuth: 'getIsAuth',
+    }),
+    ...mapGetters({
+      uid: 'getUID',
+    }),
+    ...mapGetters({
       height: 'getLoginHeight',
     }),
     ...mapGetters({
@@ -91,11 +97,17 @@ export default {
   },
   methods: {
     ...mapActions(['login']),
+    ...mapActions(['loginErrorClose']),
     async onSubmit() {
       await this.login({ uid: this.userId, pswd: this.userPw });
       this.clickLoginClose();
     },
+    clickErrorClose() {
+      this.loginErrorClose();
+    },
     clickLoginClose() {
+      this.userId = '';
+      this.userPw = '';
       this.$emit('click-login-close');
     },
   },

@@ -8,10 +8,32 @@
     </div>
 
     <!-- DSM 로그인(학번/비밀번호) 버튼 -->
-    <div v-if="this.isAuth">
+    <div v-if="this.loginErrorState !== ''" class="login-error">
+      <button
+        id="errorClose"
+        class="error-closebtn"
+        type="button"
+        v-on:click="clickErrorClose"
+      >&times;</button>
+      <h1>로그인 실패</h1>
+      <p>{{ this.loginErrorState }}</p>
+    </div>
+
+    <div v-if="this.isAuth && !this.adminCheck">
       <div class="login-user-wrap">
         <div class="login-ok">
           <button class="login-user">{{ this.uname }}</button>
+        </div>
+      </div>
+    </div>
+
+    <div v-else-if="this.isAuth && this.adminCheck">
+      <div class="login-user-wrap">
+        <div class="login-ok">
+          <button
+            class="login-user admin"
+            v-on:click="goAdmin"
+          >{{ this.uname }}</button>
         </div>
       </div>
     </div>
@@ -55,8 +77,15 @@ export default {
   computed: {
     ...mapGetters(['getUName']),
     ...mapGetters(['getIsAuth']),
+    ...mapGetters({
+      adminCheck: 'getAdminCheck',
+    }),
+    ...mapGetters({
+      loginErrorState: 'getLoginErrorState',
+    }),
     ...mapState(['uname']),
     ...mapState(['isAuth']),
+    ...mapState(['loginErrorState']),
   },
   watch: {
     getLoginClick() {
@@ -70,7 +99,9 @@ export default {
   methods: {
     ...mapActions(['onClickModal']),
     ...mapActions(['clickLogin']),
+    ...mapActions(['loginErrorClose']),
     clickLoginOpen() {
+      this.clickErrorClose();
       this.onClickModal({ onModal: true });
       this.clickLogin({
         height: '100%',
@@ -82,6 +113,15 @@ export default {
       this.clickLogin({
         height: '0%',
         display: 'none',
+      });
+    },
+    clickErrorClose() {
+      this.loginErrorClose();
+      this.loginErrorState = '';
+    },
+    goAdmin() {
+      this.$router.push({
+        name: 'admin',
       });
     },
   },

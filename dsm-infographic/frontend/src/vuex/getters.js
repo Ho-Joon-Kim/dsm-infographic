@@ -6,6 +6,7 @@ export default {
   getIsAuth: state => state.isAuth,
   getLoginHeight: state => state.loginHeight,
   getLoginDisplay: state => state.loginDisplay,
+  getAdminCheck: state => state.adminCheck,
   /* Survey */
   getSurveyErrorState: state => state.surveyErrorState,
   getSurveyIsOk: state => state.surveyIsOk,

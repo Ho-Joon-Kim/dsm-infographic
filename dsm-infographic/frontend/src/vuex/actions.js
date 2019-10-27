@@ -7,6 +7,7 @@ import {
   LOGIN_ERROR_STATE,
   LOGIN_HEIGHT,
   LOGIN_DISPLAY,
+  ADMIN_CHECK,
   /* Survey */
   SURVEY_ERROR_STATE,
   SURVEY_IS_OK,
@@ -43,6 +44,10 @@ const setLoginHeight = ({ commit }, data) => {
 
 const setLoginDisplay = ({ commit }, data) => {
   commit(LOGIN_DISPLAY, data);
+};
+
+const setAdminCheck = ({ commit }, data) => {
+  commit(ADMIN_CHECK, data);
 };
 
 const processLoginResponse = (store, loginResponse) => {
@@ -104,12 +109,20 @@ export default {
     setLoginDisplay(store, display);
   },
   async login(store, { uid, pswd }) {
+    if (uid === 'admin' || uid === 'dev') {
+      setAdminCheck(store, true);
+    } else {
+      setAdminCheck(store, false);
+    }
     const loginResponse = await api.login(uid, pswd);
     processLoginResponse(store, loginResponse.data);
     if (store.getters.getIsAuth) {
       setUID(store, uid);
     }
     return store.getters.getIsAuth;
+  },
+  loginErrorClose(store) {
+    setLoginErrorState(store, '');
   },
   async survey(store, {
     q1, q2, contentId, uid,

@@ -74,10 +74,12 @@ export default {
     ...mapActions(['contentInfo']),
     ...mapActions(['clickContent']),
     ...mapActions(['onClickModal']),
+    ...mapActions(['loginErrorClose']),
     clickInfo() {
       this.isClick = true;
       this.clickContent({ contentId: this.contentId });
       this.onClickModal({ onModal: true });
+      this.loginErrorClose();
     },
     clickDetailClose() {
       this.isClick = false;
