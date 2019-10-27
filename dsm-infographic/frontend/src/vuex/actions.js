@@ -5,6 +5,8 @@ import {
   UNAME,
   IS_AUTH,
   LOGIN_ERROR_STATE,
+  LOGIN_HEIGHT,
+  LOGIN_DISPLAY,
   /* Survey */
   SURVEY_ERROR_STATE,
   SURVEY_IS_OK,
@@ -33,6 +35,14 @@ const setLoginErrorState = ({ commit }, data) => {
 
 const setIsAuth = ({ commit }, data) => {
   commit(IS_AUTH, data);
+};
+
+const setLoginHeight = ({ commit }, data) => {
+  commit(LOGIN_HEIGHT, data);
+};
+
+const setLoginDisplay = ({ commit }, data) => {
+  commit(LOGIN_DISPLAY, data);
 };
 
 const processLoginResponse = (store, loginResponse) => {
@@ -89,10 +99,14 @@ const setOnModal = ({ commit }, data) => {
 
 /* Export */
 export default {
+  clickLogin(store, { height, display }) {
+    setLoginHeight(store, height);
+    setLoginDisplay(store, display);
+  },
   async login(store, { uid, pswd }) {
     const loginResponse = await api.login(uid, pswd);
     processLoginResponse(store, loginResponse.data);
-    if(store.getters.getIsAuth) {
+    if (store.getters.getIsAuth) {
       setUID(store, uid);
     }
     return store.getters.getIsAuth;

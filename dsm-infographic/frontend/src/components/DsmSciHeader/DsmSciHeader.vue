@@ -28,8 +28,6 @@
       </div>
 
       <dsmsci-login
-        v-bind:height="loginHeight"
-        v-bind:display="loginDisplay"
         v-on:click-login-close="clickLoginClose"
       />
     </div>
@@ -60,17 +58,31 @@ export default {
     ...mapState(['uname']),
     ...mapState(['isAuth']),
   },
+  watch: {
+    getLoginClick() {
+      if (this.getLoginClick === true) {
+        this.clickLoginOpen();
+      } else {
+        this.clickLoginClose();
+      }
+    },
+  },
   methods: {
     ...mapActions(['onClickModal']),
+    ...mapActions(['clickLogin']),
     clickLoginOpen() {
-      this.loginHeight = '100%';
-      this.loginDisplay = 'inline-block';
       this.onClickModal({ onModal: true });
+      this.clickLogin({
+        height: '100%',
+        display: 'inline-block',
+      });
     },
     clickLoginClose() {
-      this.loginHeight = '0%';
-      this.loginDisplay = 'none';
       this.onClickModal({ onModal: false });
+      this.clickLogin({
+        height: '0%',
+        display: 'none',
+      });
     },
   },
 };

@@ -12,6 +12,8 @@ const state = {
   uname: '',
   loginErrorState: '',
   isAuth: false,
+  loginHeight: '0%',
+  loginDisplay: 'none',
   /* Survey */
   surveyErrorState: '',
   surveyIsOk: false,

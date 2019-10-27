@@ -64,10 +64,6 @@ import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'dsmsci-login',
-  props: {
-    height: String,
-    display: String,
-  },
   data() {
     return {
       userId: '',
@@ -85,6 +81,12 @@ export default {
     },
     ...mapGetters({
       loginErrorState: 'getLoginErrorState',
+    }),
+    ...mapGetters({
+      height: 'getLoginHeight',
+    }),
+    ...mapGetters({
+      display: 'getLoginDisplay',
     }),
   },
   methods: {

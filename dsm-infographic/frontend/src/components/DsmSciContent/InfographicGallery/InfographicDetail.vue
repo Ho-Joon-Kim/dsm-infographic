@@ -165,7 +165,11 @@
       <div v-else>
         <div class="detail-info">
           <div class="not-login">
-            <p>로그인이 필요합니다!</p>
+            <p>
+              <button
+                v-on:click="clickLoginOpen"
+              >{{ computedNotLogin }}</button>
+            </p>
           </div>
         </div>
       </div>
@@ -200,6 +204,14 @@ export default {
     ...mapGetters({
       detailImage: 'getDetailImage',
     }),
+    computedNotLogin() {
+      if (this.detailImage) {
+        this.onClickModal({ onModal: false });
+      } else {
+        this.onClickModal({ onModal: true });
+      }
+      return '로그인이 필요합니다!';
+    },
     notClickCheck() {
       this.clickDetailImageOpen();
       return !this.clickCheck;
@@ -221,6 +233,14 @@ export default {
     ...mapActions(['onClickModal']),
     ...mapActions(['survey']),
     ...mapActions(['clickDetailImage']),
+    ...mapActions(['clickLogin']),
+    clickLoginOpen() {
+      this.clickLogin({
+        height: '100%',
+        display: 'inline-block',
+      });
+      this.onClickModal({ onModal: true });
+    },
     clickDetailImageOpen() {
       this.clickDetailImage({
         detailImage: true,

@@ -4,6 +4,8 @@ export default {
   getUName: state => state.uname,
   getLoginErrorState: state => state.loginErrorState,
   getIsAuth: state => state.isAuth,
+  getLoginHeight: state => state.loginHeight,
+  getLoginDisplay: state => state.loginDisplay,
   /* Survey */
   getSurveyErrorState: state => state.surveyErrorState,
   getSurveyIsOk: state => state.surveyIsOk,

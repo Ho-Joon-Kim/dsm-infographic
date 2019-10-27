@@ -14,6 +14,12 @@ export default {
   [types.IS_AUTH](state, isAuth) {
     state.isAuth = isAuth;
   },
+  [types.LOGIN_HEIGHT](state, loginHeight) {
+    state.loginHeight = loginHeight;
+  },
+  [types.LOGIN_DISPLAY](state, loginDisplay) {
+    state.loginDisplay = loginDisplay;
+  },
   /* Survey */
   [types.SURVEY_ERROR_STATE](state, surveyErrorState) {
     state.surveyErrorState = surveyErrorState;
