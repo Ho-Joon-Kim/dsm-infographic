@@ -66,7 +66,7 @@ const setSurveyIsOk = ({ commit }, data) => {
 };
 
 const processSurveyResponse = (store, surveyResponse) => {
-  if (surveyResponse.output) {
+  if (surveyResponse.output === 'done') {
     setSurveyErrorState(store, '');
     setSurveyIsOk(store, true);
   } else {
