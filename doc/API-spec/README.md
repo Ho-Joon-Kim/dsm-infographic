@@ -11,7 +11,7 @@ DSM-Infographic의 Backend API 설계한 내용을 정리합니다.
   - Response Header : X
   - Response Body : username, loginchk
 
-- `GET /api/info/img ?imgid=` : 인포그래픽 사진을 응답하는 API. imgid 변수를 보내면 그에 맞는 이미지를 반환한다. o
+- `GET /api/info/img ?imgid=` : 인포그래픽 사진을 응답하는 API. imgid 변수를 보내면 그에 맞는 이미지를 반환한다.o
   - Request Header : imgid
   - Params : X
   - Request Body : X
@@ -51,7 +51,7 @@ DSM-Infographic의 Backend API 설계한 내용을 정리합니다.
   - Response Header : X
   - Response Body : surey_count,survey_num
 
-- `POST /api/survey/second` :변수 3개에 인포그래픽 번호를 넣으면 순위에 따라 차등한 점수가 입력된다(모두 0을 입력했을 경우에는 현재1,2,3등을 반환한다.). o
+- `POST /api/survey/second` :변수 3개에 인포그래픽 번호를 넣으면 순위에 따라 차등한 점수가 입력된다. o
   - Request Header : X
   - Params : X
   - Request Body :  fst,scd,trd
