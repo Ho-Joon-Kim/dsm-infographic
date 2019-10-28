@@ -27,7 +27,7 @@ DSM-Infographic의 Backend API 설계한 내용을 정리합니다.
   - Response Header : X
   - Response Body : desc,title
 
-- `POST /api/survey` : 인포그래픽 설문조사를 저장하는 API. 문제 두개의 답과 인포그래픽의 번호, 로그인한 사람의 id를 주면 json에 데이터를 추가하고 성공여부를 반환한다. o
+- `POST /api/survey` : 인포그래픽 설문조사를 저장하는 API. 문제의 답과 인포그래픽의 번호, 로그인한 사람의 id를 주면 json에 데이터를 추가하고 성공여부를 반환한다. o
   - Request Header : X
   - Params : X
   - Request Body : q1,q2,infoNum,id
