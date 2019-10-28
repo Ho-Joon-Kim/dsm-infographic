@@ -1,0 +1,96 @@
+
+#dsmSciNotice {
+  .notice-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: $index-2;
+      width: 100%;
+      height: 0%;
+      background-color:rgba(0,0,0, 0.7);
+      transition: 0.3s;
+  }
+
+  .notice-content {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: calc(#{$login-content-height} / -2);
+    margin-top: -moz-calc(#{$login-content-height} / -2);
+    margin-top: -webkit-calc(#{$login-content-height} / -2);
+    margin-top: -ms-calc(#{$login-content-height} / -2);
+    margin-left: calc(#{$login-content-width} / -2);
+    margin-left: -moz-calc(#{$login-content-width} / -2);
+    margin-left: -webkit-calc(#{$login-content-width} / -2);
+    margin-left: -ms-calc(#{$login-content-width} / -2);
+    z-index: $index-1;
+    width: $login-content-width;
+    height: $login-content-height;
+    background-color:  $white-color;
+    border: 5px solid $primary-color;
+    border-radius: $login-border-radius;
+
+    .closebtn {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: $login-closebtn-width;
+      height: $login-closebtn-height;
+      background-color: transparent;
+      font-size: $font-size-3;
+      font-weight: bold;
+      cursor:pointer;
+      z-index: $index-0;
+    }
+
+    .notice-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      
+      .notice-title {
+        width: 100%;
+        height: 40%;
+        font-size: $font-size-1;
+        text-align: center;
+        display: table;
+        color: $primary-color-dark;
+
+        h1 {
+          display: table-cell;
+          vertical-align: middle;
+          border-bottom: 2px dotted $primary-color-dark;
+        }
+      }
+
+      .notice-body {
+        width: 100%;
+        height: 40%;
+        display: table;
+        font-size: $font-size-2;
+        text-align: center;
+        color: $primary-color-dark;
+        p {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+
+      .notice-check {
+        width: 100%;
+
+        .check-button {
+          width: 100%; 
+          height: $login-submit-button-height;
+          border-radius: 15px;
+          color: $white-color;
+          background-color: $primary-color;
+          font-size: $font-size-2;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

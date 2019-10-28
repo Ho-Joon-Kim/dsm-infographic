@@ -15,15 +15,29 @@ const state = {
   loginHeight: '0%',
   loginDisplay: 'none',
   adminCheck: false,
+  adminPageCheck: false,
   /* Survey */
   surveyErrorState: '',
   surveyIsOk: false,
+  surveySubmitCount: '',
+  surveySubmitList: [],
+  surveyPostQ1: '',
+  surveyPostQ2: '',
+  surveyPostContentId: '',
+  surveyOverlapCheck: false,
+
   /* Click Infographic */
   clickContentId: '',
   /* Click Detail Image */
   detailImgLink: '',
   detailImgTitle: '',
   detailImage: false,
+  /* Notice */
+  noticeTitle: '',
+  noticeBody: '',
+  noticeButton: '',
+  noticeHeight: '0%',
+  noticeDisplay: 'none',
   /* Modal */
   onModal: false,
 };

@@ -98,8 +98,12 @@ export default {
   methods: {
     ...mapActions(['onClickModal']),
     ...mapActions(['login']),
+    ...mapActions(['setSurveyOverlapCheck']),
     async onSubmit() {
       await this.login({ uid: this.userId, pswd: this.userPw });
+      if (this.isAuth === true) {
+        this.setSurveyOverlapCheck({ uid: this.userId });
+      }
       this.clickLoginClose();
       this.onClickModal({ onModal: false });
     },

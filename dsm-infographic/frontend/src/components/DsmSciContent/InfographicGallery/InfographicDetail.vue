@@ -199,9 +199,41 @@ export default {
       submitError: '',
     };
   },
+  watch: {
+    getSurveyIsOk() {
+      if (this.getSurveyIsOk === true) {
+        this.clickDetailClose();
+      }
+    },
+    getSurveyOverlapCheck() {
+      if (this.getSurveyOverlapCheck === true) {
+        this.setNotice({
+          noticeTitle: '제출 실패',
+          noticeBody: '이미 평가한 작품입니다',
+          noticeButton: '확인',
+          noticeHeight: '100%',
+          noticeDisplay: 'inline-block',
+        });
+        this.setSurveyOverlapCheckCheck({ surveyOverlapCheckCheckCheck: false });
+      }
+    },
+    getSurveyErrorState() {
+      if (this.getSurveyErrorState === '자신의 작품은 평가할 수 없습니다') {
+        this.setNotice({
+          noticeTitle: '제출 실패',
+          noticeBody: this.getSurveyErrorState,
+          noticeButton: '확인',
+          noticeHeight: '100%',
+          noticeDisplay: 'inline-block',
+        });
+      }
+    },
+  },
   computed: {
     ...mapGetters(['getUID']),
     ...mapGetters(['getSurveyIsOk']),
+    ...mapGetters(['getSurveyErrorState']),
+    ...mapGetters(['getSurveyOverlapCheck']),
     ...mapGetters({
       detailImage: 'getDetailImage',
     }),
@@ -235,6 +267,11 @@ export default {
     ...mapActions(['survey']),
     ...mapActions(['clickDetailImage']),
     ...mapActions(['clickLogin']),
+    ...mapActions(['surveySubmitOverlapCheck']),
+    ...mapActions(['setNotice']),
+    ...mapActions(['surveyPostData']),
+    ...mapActions(['initSurvey']),
+    ...mapActions(['setSurveyOverlapCheckCheck']),
     clickLoginOpen() {
       this.clickLogin({
         height: '100%',
@@ -276,19 +313,52 @@ export default {
       return this.qErrorCheck(qId);
     },
     async onSubmit() {
+      if (this.getUID === 'admin' || this.getUID === 'dev') {
+        this.setNotice({
+          noticeTitle: '제출 실패',
+          noticeBody: 'admin 또는 dev계정은 평가에 참여할 수 없습니다',
+          noticeButton: '확인',
+          noticeHeight: '100%',
+          noticeDisplay: 'inline-block',
+        });
+        return;
+      }
+      if (this.surveySubmitOverlapCheck({ contentId: this.contentId }) === true) {
+        this.setNotice({
+          noticeTitle: '제출 실패',
+          noticeBody: '이미 평가한 작품입니다',
+          noticeButton: '확인',
+          noticeHeight: '100%',
+          noticeDisplay: 'inline-block',
+        });
+        return;
+      }
       if (this.qError(1) || this.qError(2)) {
         this.submitError = '아직 평가하지 않은 항목이 있습니다.';
         return;
       }
-      await this.survey({
-        q1: this.q1,
-        q2: this.q2,
-        contentId: this.contentId,
-        uid: this.getUID,
+      this.surveyPostData({ q1: this.q1, q2: this.q2, contentId: this.contentId });
+      this.setNotice({
+        noticeTitle: '평가 제출',
+        noticeBody: `과학적 사고력 : ${this.q1}점\n산출물 완성도 : ${this.q2}점\n평가 제출 하시겠습니까?`,
+        noticeButton: '확인',
+        noticeHeight: '100%',
+        noticeDisplay: 'inline-block',
       });
-      this.clickDetailClose();
+      if (this.getSurveyIsOk === true) {
+        this.clickDetailClose();
+      } else if (this.getSurveyIsOk === false && this.getSurveyErrorState !== '') {
+        this.setNotice({
+          noticeTitle: '제출 실패',
+          noticeBody: this.getSurveyErrorState,
+          noticeButton: '확인',
+          noticeHeight: '100%',
+          noticeDisplay: 'inline-block',
+        });
+      }
     },
     clickDetailClose() {
+      this.initSurvey();
       this.$emit('click-detail-close');
     },
   },

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import InfographicContent from '@/components/DsmSciContent/InfographicGallery/InfographicContent.vue';
 
 export default {
@@ -43,10 +43,13 @@ export default {
     },
   },
   methods: {
+    ...mapActions(['surveySubmitOverlapCheck']),
     initContents() {
       for (let i = 0; i < this.contentCnt; i += 1) {
         this.nextContentId();
-        this.contentIds[i] = { contentId: String(this.currentContentId) };
+        this.contentIds[i] = {
+          contentId: String(this.currentContentId),
+        };
       }
     },
     nextContentId() {

@@ -11,23 +11,12 @@
     </div>
 
     <!-- DSM 로그인(학번/비밀번호) 버튼 -->
-    <div v-if="this.loginErrorState !== ''" class="login-error">
-      <button
-        id="errorClose"
-        class="error-closebtn"
-        type="button"
-        v-on:click="clickErrorClose"
-      >&times;</button>
-      <h1>로그인 실패</h1>
-      <p>{{ this.loginErrorState }}</p>
-    </div>
-
     <div v-if="this.isAuth && !this.adminCheck">
       <div class="login-user-wrap">
         <div class="login-ok">
           <button
             class="login-user"
-            v-on:click="logout"
+            v-on:click="clickLogoutOpen"
           >{{ this.uname }}</button>
         </div>
       </div>
@@ -87,6 +76,9 @@ export default {
       adminCheck: 'getAdminCheck',
     }),
     ...mapGetters({
+      adminPageCheck: 'getAdminPageCheck',
+    }),
+    ...mapGetters({
       loginErrorState: 'getLoginErrorState',
     }),
     ...mapState(['uname']),
@@ -105,8 +97,9 @@ export default {
     ...mapActions(['onClickModal']),
     ...mapActions(['clickLogin']),
     ...mapActions(['loginErrorClose']),
+    ...mapActions(['setNotice']),
+    ...mapActions(['setAdminPageCheck']),
     clickLoginOpen() {
-      this.clickErrorClose();
       this.onClickModal({ onModal: true });
       this.clickLogin({
         height: '100%',
@@ -114,7 +107,13 @@ export default {
       });
     },
     clickLogoutOpen() {
-      // 로그아웃 구현
+      this.setNotice({
+        noticeTitle: '로그아웃',
+        noticeBody: '로그아웃하시겠습니까?',
+        noticeButton: '확인',
+        noticeHeight: '100%',
+        noticeDisplay: 'inline-block',
+      });
     },
     clickLoginClose() {
       this.onClickModal({ onModal: false });
@@ -123,18 +122,25 @@ export default {
         display: 'none',
       });
     },
-    clickErrorClose() {
-      this.loginErrorClose();
-    },
     goAdmin() {
-      this.$router.push({
-        name: 'admin',
-      });
+      if (this.adminPageCheck === false) {
+        this.setAdminPageCheck({ adminPageCheck: true });
+        this.$router.push({
+          name: 'admin',
+        });
+      } else {
+        this.clickLogoutOpen();
+      }
     },
     goHome() {
-      this.$router.push({
-        name: 'home',
-      });
+      if (this.adminPageCheck === true) {
+        this.setAdminPageCheck({ adminPageCheck: false });
+        this.$router.push({
+          name: 'home',
+        });
+      } else {
+        window.scrollTo(0, 0);
+      }
     },
   },
 };

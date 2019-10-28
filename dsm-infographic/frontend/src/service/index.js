@@ -15,6 +15,10 @@ export default {
     const surveyResultResponse = await surveyAPI.surveyResult(contentId);
     return surveyResultResponse;
   },
+  async surveyOverlapCheck(uid) {
+    const surveyOverlapCheckResponse = await surveyAPI.surveyOverlapCheck(uid);
+    return surveyOverlapCheckResponse;
+  },
   async contentInfo(contentId) {
     const contentResponse = await contentAPI.contentInfo(contentId);
     return contentResponse;

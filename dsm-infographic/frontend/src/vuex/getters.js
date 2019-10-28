@@ -7,9 +7,16 @@ export default {
   getLoginHeight: state => state.loginHeight,
   getLoginDisplay: state => state.loginDisplay,
   getAdminCheck: state => state.adminCheck,
+  getAdminPageCheck: state => state.adminPageCheck,
   /* Survey */
   getSurveyErrorState: state => state.surveyErrorState,
   getSurveyIsOk: state => state.surveyIsOk,
+  getSurveySubmitList: state => state.surveySubmitList,
+  getSurveySubmitCount: state => state.surveySubmitCount,
+  getSurveyPostQ1: state => state.surveyPostQ1,
+  getSurveyPostQ2: state => state.surveyPostQ2,
+  getSurveyPostContentId: state => state.surveyPostContentId,
+  getSurveyOverlapCheck: state => state.surveyOverlapCheck,
   /* Click Infographic */
   getClickContendId: state => state.clickContentId,
   /* Click Detail Image */
@@ -18,4 +25,10 @@ export default {
   getDetailImgTitle: state => state.detailImgTitle,
   /* Modal */
   getOnModal: state => state.onModal,
+  /* Notice */
+  getNoticeTitle: state => state.noticeTitle,
+  getNoticeBody: state => state.noticeBody,
+  getNoticeButton: state => state.noticeButton,
+  getNoticeHeight: state => state.noticeHeight,
+  getNoticeDisplay: state => state.noticeDisplay,
 };
