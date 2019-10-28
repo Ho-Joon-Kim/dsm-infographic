@@ -41,7 +41,7 @@ DSM-Infographic의 Backend API 설계한 내용을 정리합니다.
   - Request Body : X
   - Success Code : X
   - Response Header : X
-  - Response Body : q1_a, q2_a
+  - Response Body : q1_a, q2_a, sq_a
 
 - `POST /api/survey/check` : 설문조사 여부를 반환하는 API. 아이디를 주면 설문조사한 인포그래픽의 번호들과 설문한 작품의 개수를 응답한다. o
   - Request Header : X
