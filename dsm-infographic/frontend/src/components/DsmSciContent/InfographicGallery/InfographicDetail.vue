@@ -54,9 +54,8 @@
           <div id="surveyQ1" class="survey-q">
             <h2 class="q-title">1. 과학적 사고력</h2>
             <ul class="q-valuationBasis">
-              <li>-&nbsp;기후 변화에 대하여 충실하게 다루였는가?</li>
-              <li>-&nbsp;과학적 근거를 토대로 작성하였는가?</li>
-              <li>-&nbsp;과학적을 빠지거나 부족한 부분은 없는가?</li><br>
+              <li>-&nbsp;주제를 충실하게 다루었는가?</li>
+              <li>-&nbsp;인포그래픽에 표현된 내용이 정확하고 의미 있는가?</li>
             </ul>
             <div class="q-score">
               <ul class="score-radio-list">
@@ -99,7 +98,9 @@
           <div id="surveyQ2" class="survey-q">
             <h2 class="q-title">2. 산출물 완성도</h2>
             <ul class="q-valuationBasis">
-              <li>-&nbsp;설명자료가 이해하기 쉽게 잘 설명되어 있으며 집중할 수 있게 만들었는가?</li>
+              <li>-&nbsp;핵심 포인트와 내용의 흐름을 효과적으로 구성하였는가?</li>
+              <li>-&nbsp;전달하고자 하는 지식과 정보의 특성에 맞는 시각적 표현을 했는가?</li>
+              <li>-&nbsp;인포그래픽의 색상 및 디자인 등이 우수한가?</li>
             </ul>
             <div class="q-score">
               <ul class="score-radio-list">
@@ -285,13 +286,6 @@ export default {
         contentId: this.contentId,
         uid: this.getUID,
       });
-      // BackEnd단에서 Survey API 개발 후,
-      // 정상 동작이 확인되면 아래의 테스트 코드를 지운다.
-      if (this.getSurveyIsOk) {
-        console.log('제출 성공');
-      } else {
-        console.log('제출 실패');
-      }
       this.clickDetailClose();
     },
     clickDetailClose() {

@@ -3,7 +3,10 @@
     <!-- DSMHS 로고 -->
     <div class="dsmsci-logo">
       <h1>
-        <a href="/">{{ title }}</a>
+        <a
+         href="javascript:void(0)"
+         v-on:click="goHome"
+        >{{ title }}</a>
       </h1>
     </div>
 
@@ -22,7 +25,10 @@
     <div v-if="this.isAuth && !this.adminCheck">
       <div class="login-user-wrap">
         <div class="login-ok">
-          <button class="login-user">{{ this.uname }}</button>
+          <button
+            class="login-user"
+            v-on:click="logout"
+          >{{ this.uname }}</button>
         </div>
       </div>
     </div>
@@ -31,7 +37,7 @@
       <div class="login-user-wrap">
         <div class="login-ok">
           <button
-            class="login-user admin"
+            class="login-user admin-button"
             v-on:click="goAdmin"
           >{{ this.uname }}</button>
         </div>
@@ -85,7 +91,6 @@ export default {
     }),
     ...mapState(['uname']),
     ...mapState(['isAuth']),
-    ...mapState(['loginErrorState']),
   },
   watch: {
     getLoginClick() {
@@ -108,6 +113,9 @@ export default {
         display: 'inline-block',
       });
     },
+    clickLogoutOpen() {
+      // 로그아웃 구현
+    },
     clickLoginClose() {
       this.onClickModal({ onModal: false });
       this.clickLogin({
@@ -117,11 +125,15 @@ export default {
     },
     clickErrorClose() {
       this.loginErrorClose();
-      this.loginErrorState = '';
     },
     goAdmin() {
       this.$router.push({
         name: 'admin',
+      });
+    },
+    goHome() {
+      this.$router.push({
+        name: 'home',
       });
     },
   },
