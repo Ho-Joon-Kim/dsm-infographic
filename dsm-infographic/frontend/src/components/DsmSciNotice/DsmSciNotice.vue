@@ -12,7 +12,6 @@
       class="notice-content"
       v-bind:style="{ display: computedDisplay }"
     >
-
       <button
         id="noticeClose"
         class="closebtn"
@@ -84,8 +83,10 @@ export default {
       surveyContentId: 'getSurveyPostContentId',
     }),
     ...mapGetters(['getUID']),
+    ...mapGetters(['getSurveyErrorState']),
   },
   methods: {
+    ...mapActions(['initSurvey']),
     ...mapActions(['onClickModal']),
     ...mapActions(['setNotice']),
     ...mapActions(['logout']),
@@ -93,8 +94,10 @@ export default {
     ...mapActions(['setAdminPageCheck']),
     ...mapActions(['surveySubmitOverlapCheck']),
     ...mapActions(['setSurveyOverlapCheckCheck']),
+    ...mapActions(['setSurveyFinishF']),
     noticeCheck() {
       if (this.noticeTitle === '로그아웃') {
+        this.setSurveyFinishF({ surveyFinish: false });
         this.logout();
         if (this.adminPageCheck === true) {
           this.setAdminPageCheck({ adminPageCheck: false });
@@ -104,19 +107,19 @@ export default {
         }
       } else if (this.noticeTitle === '평가 제출') {
         this.surveySubmit();
-        this.surveySubmitOverlapCheck({ contentId: this.contentId });
-      } else if (this.noticeTitle === '평가 완료') {
-        this.clickNoticeClose();
-        this.onClickModal({ onModal: false });
+      } else if (this.noticeTitle === '모든 평가 완료') {
         this.$router.push({
-          name: 'last',
+          name: 'home',
         });
-        return;
       }
       this.clickNoticeClose();
       this.onClickModal({ onModal: false });
     },
     async surveySubmit() {
+      if (this.getSurveyIsOk === true) {
+        this.setSurveyOverlapCheckCheck({ surveyOverlapCheckCheckCheck: false });
+        return;
+      }
       await this.survey({
         q1: this.surveyQ1,
         q2: this.surveyQ2,

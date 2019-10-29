@@ -16,6 +16,9 @@ export const SURVEY_POST_Q1 = 'SURVEY_POST_Q1';
 export const SURVEY_POST_Q2 = 'SURVEY_POST_Q2';
 export const SURVEY_POST_CONTENTID = 'SURVEY_POST_CONTENTID';
 export const SURVEY_OVERLAP_CHECK = 'SURVEY_OVERLAP_CHECK';
+export const SURVEY_LAST = 'SURVEY_LAST';
+export const SURVEY_FINISH = 'SURVEY_FINISH';
+export const USER_CONTENTID = 'USER_CONTENTID';
 /* Click Infographic */
 export const CLICK_CONTENT_ID = 'CLICK_CONTENT_ID';
 /* Click Detail Image */

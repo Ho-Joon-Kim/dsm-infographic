@@ -18,6 +18,8 @@ import {
   SURVEY_POST_Q1,
   SURVEY_POST_Q2,
   SURVEY_POST_CONTENTID,
+  SURVEY_LAST,
+  SURVEY_FINISH,
   /* Click Infographic */
   CLICK_CONTENT_ID,
   /* Click Detail Image */
@@ -33,6 +35,7 @@ import {
   NOTICE_HEIGHT,
   NOTICE_DISPLAY,
   SURVEY_OVERLAP_CHECK,
+  USER_CONTENTID,
 } from './mutation_types';
 
 /* Login */
@@ -104,7 +107,7 @@ const surveySubmitOverlapCheckBool = (store, contentId) => {
   const surveySubmitCount = store.getters.getSurveySubmitCount;
   const surveySubmitList = store.getters.getSurveySubmitList;
   for (let i = 1; i <= surveySubmitCount; i += 1) {
-    if (surveySubmitList[i] === contentId) {
+    if (String(surveySubmitList[i]) === String(contentId)) {
       setSurveyOverlapCheckCheck(store, true);
       return true;
     }
@@ -113,12 +116,19 @@ const surveySubmitOverlapCheckBool = (store, contentId) => {
   return false;
 };
 
+const setSurveyLast = ({ commit }, data) => {
+  commit(SURVEY_LAST, data);
+};
+
 const processSurveyOverlapCheckResponse = (store, surveyOverlapCheckResponse) => {
   const surveySubmitNum = surveyOverlapCheckResponse.survey_num;
   const surveySubmitCount = surveyOverlapCheckResponse.survey_count;
   const surveySubmitList = surveySubmitNum.split(' ');
   setSurveySubmitList(store, surveySubmitList);
   setSurveySubmitCount(store, surveySubmitCount);
+  if (Number(surveySubmitCount) >= Number(26)) {
+    setSurveyLast(store, true);
+  }
 };
 
 const surveyOverlapCheck = async (store, uid) => {
@@ -126,14 +136,20 @@ const surveyOverlapCheck = async (store, uid) => {
   processSurveyOverlapCheckResponse(store, surveyOverlapCheckResponse.data);
 };
 
+const setUserContentId = ({ commit }, data) => {
+  commit(USER_CONTENTID, data);
+};
+
 const processSurveyResponse = (store, surveyResponse) => {
   surveyOverlapCheck(store, store.getters.getUID);
-  if (surveySubmitOverlapCheckBool(store, store.getters.getSurveyPostContentId)) {
+  if (surveySubmitOverlapCheckBool(store, store.getters.getSurveyPostContentId) === true) {
     setSurveyErrorState(store, '이미 평가한 작품입니다');
     setSurveyIsOk(store, false);
     setSurveyOverlapCheckCheck(store, true);
     return;
   }
+  setSurveyOverlapCheckCheck(store, false);
+
   if (surveyResponse.output === 'done') {
     setSurveyErrorState(store, '');
     setSurveyIsOk(store, true);
@@ -156,6 +172,10 @@ const setSurveyPostQ2 = ({ commit }, data) => {
 
 const setSurveyPostContentId = ({ commit }, data) => {
   commit(SURVEY_POST_CONTENTID, data);
+};
+
+const setSurveyFinish = ({ commit }, data) => {
+  commit(SURVEY_FINISH, data);
 };
 
 /* Click Infographic */
@@ -257,6 +277,9 @@ export default {
     return contentResponse;
   },
   /* Survey */
+  setSurveyLastLast(store, { surveyLast }) {
+    setSurveyLast(store, surveyLast);
+  },
   async surveyRanking(store, { rank1, rank2, rank3 }) {
     const surveyRankingResponse = await api.surveyRanking(rank1, rank2, rank3);
     return surveyRankingResponse.data.output;
@@ -286,6 +309,9 @@ export default {
   }) {
     const surveyResponse = await api.survey(q1, q2, contentId, uid);
     processSurveyResponse(store, surveyResponse.data);
+    if (surveyResponse.data.output === 'error') {
+      setUserContentId(store, String(contentId));
+    }
     return store.getters.getSurveyIsOk;
   },
   async surveyResult(store, { contentId }) {
@@ -302,6 +328,9 @@ export default {
     setSurveyPostQ1(store, q1);
     setSurveyPostQ2(store, q2);
     setSurveyPostContentId(store, contentId);
+  },
+  setSurveyFinishF(store, { surveyFinish }) {
+    setSurveyFinish(store, surveyFinish);
   },
   /* Click Content */
   clickContent(store, { contentId }) {

@@ -17,6 +17,9 @@ export default {
   getSurveyPostQ2: state => state.surveyPostQ2,
   getSurveyPostContentId: state => state.surveyPostContentId,
   getSurveyOverlapCheck: state => state.surveyOverlapCheck,
+  getSurveyLast: state => state.surveyLast,
+  getSurveyFinish: state => state.surveyFinish,
+  getUserContentId: state => state.userContentId,
   /* Click Infographic */
   getClickContendId: state => state.clickContentId,
   /* Click Detail Image */

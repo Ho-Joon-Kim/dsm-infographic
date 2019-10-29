@@ -19,13 +19,15 @@ const state = {
   /* Survey */
   surveyErrorState: '',
   surveyIsOk: false,
-  surveySubmitCount: '',
+  surveySubmitCount: '0',
   surveySubmitList: [],
   surveyPostQ1: '',
   surveyPostQ2: '',
   surveyPostContentId: '',
   surveyOverlapCheck: false,
-
+  surveyLast: false,
+  surveyFinish: false,
+  userContentId: '',
   /* Click Infographic */
   clickContentId: '',
   /* Click Detail Image */

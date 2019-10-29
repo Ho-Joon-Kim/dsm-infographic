@@ -72,6 +72,7 @@ export default {
   computed: {
     ...mapGetters(['getUName']),
     ...mapGetters(['getIsAuth']),
+    ...mapGetters(['getSurveyLast']),
     ...mapGetters({
       adminCheck: 'getAdminCheck',
     }),
@@ -133,7 +134,7 @@ export default {
       }
     },
     goHome() {
-      if (this.adminPageCheck === true) {
+      if (this.adminPageCheck === true || this.getSurveyLast === true) {
         this.setAdminPageCheck({ adminPageCheck: false });
         this.$router.push({
           name: 'home',

@@ -66,6 +66,7 @@ export default {
   methods: {
     ...mapActions(['contentInfo']),
     ...mapActions(['surveyResult']),
+    ...mapActions(['surveyRanking']),
     async contentTitle() {
       const res = await this.contentInfo({ contentId: this.contentId });
       this.title = res.data.title;

@@ -51,6 +51,15 @@ export default {
   [types.SURVEY_OVERLAP_CHECK](state, surveyOverlapCheck) {
     state.surveyOverlapCheck = surveyOverlapCheck;
   },
+  [types.SURVEY_LAST](state, surveyLast) {
+    state.surveyLast = surveyLast;
+  },
+  [types.SURVEY_FINISH](state, surveyFinish) {
+    state.surveyFinish = surveyFinish;
+  },
+  [types.USER_CONTENTID](state, userContentId) {
+    state.userContentId = userContentId;
+  },
   /* Click Infographic */
   [types.CLICK_CONTENT_ID](state, clickContentId) {
     state.clickContentId = clickContentId;

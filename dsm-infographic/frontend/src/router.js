@@ -13,7 +13,8 @@ const requireAdmin = () => (from, to, next) => {
 };
 
 const checkLast = () => (from, to, next) => {
-  if (store.getters.getSurveySubmitCount === 27) return next();
+  if (store.getters.getUID && !store.getters.getAdminCheck) return next();
+  // if (store.getters.getSurveyLast === false) return next('/');
   return next('/');
 };
 
