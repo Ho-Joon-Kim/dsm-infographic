@@ -2,13 +2,19 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Admin from './views/Admin.vue';
+import Last from './views/Last.vue';
 import store from '@/vuex/store';
 
 Vue.use(Router);
 
 const requireAdmin = () => (from, to, next) => {
-  if (store.getters.getAdminCheck) return next(); // isAuth === true면 페이지 이동
-  return next('/'); // isAuth === false면 다시 로그인 화면으로 이동
+  if (store.getters.getAdminCheck) return next();
+  return next('/');
+};
+
+const checkLast = () => (from, to, next) => {
+  if (store.getters.getSurveySubmitCount === 27) return next();
+  return next('/');
 };
 
 export default new Router({
@@ -25,6 +31,12 @@ export default new Router({
       name: 'admin',
       component: Admin,
       beforeEnter: requireAdmin(),
+    },
+    {
+      path: '/last',
+      name: 'last',
+      component: Last,
+      beforeEnter: checkLast(),
     },
   ],
 });

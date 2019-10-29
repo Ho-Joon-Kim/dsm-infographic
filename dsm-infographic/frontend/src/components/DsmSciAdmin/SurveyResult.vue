@@ -7,6 +7,7 @@
     <div class="survey--result">
       <div class="result-q1">{{ getQ1Score }}점</div>
       <div class="result-q2">{{ getQ2Score }}점</div>
+      <div class="result-sq">{{ getSqScore }}점</div>
     </div>
     <div class="survey--result-total">
       <div class="result-total">{{ getTotalScore }}점</div>
@@ -27,6 +28,7 @@ export default {
       title: '',
       q1_score: '-1',
       q2_score: '-1',
+      sq_score: '-1',
     };
   },
   computed: {
@@ -42,8 +44,12 @@ export default {
       this.q2Score();
       return this.q2_score;
     },
+    getSqScore() {
+      this.sqScore();
+      return this.sq_score;
+    },
     getTotalScore() {
-      return String(Number(this.getQ1Score) + Number(this.getQ2Score));
+      return String(Number(this.getQ1Score) + Number(this.getQ2Score) + Number(this.getSqScore));
     },
     computedInfoGroup() {
       let Group = Number(this.contentId) % 7;
@@ -74,6 +80,18 @@ export default {
       const res = await this.surveyResult({ contentId: this.contentId });
       if (res !== false) {
         this.q2_score = res.data.q2_a;
+      }
+    },
+    async sqScore() {
+      const res = await this.surveyRanking({
+        rank1: this.contentId,
+        rank2: this.contentId,
+        rank3: this.contentId,
+      });
+      if (res !== 'done') {
+        this.sq_score = res;
+      } else {
+        this.sq_score = '-1';
       }
     },
   },

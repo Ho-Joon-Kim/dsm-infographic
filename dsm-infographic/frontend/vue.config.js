@@ -1,7 +1,7 @@
-var path = require("path");
+const path = require('path');
 
 module.exports = {
-  outputDir : path.resolve(__dirname, "../backend/public/frontend/"),
+  outputDir: path.resolve(__dirname, '../backend/public/frontend/'),
   devServer: {
     proxy: { // proxyTable 설정
       '/api': {

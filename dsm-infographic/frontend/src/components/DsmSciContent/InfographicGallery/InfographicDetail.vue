@@ -200,9 +200,15 @@ export default {
     };
   },
   watch: {
-    getSurveyIsOk() {
-      if (this.getSurveyIsOk === true) {
-        this.clickDetailClose();
+    getSurveySubmitCount() {
+      if (this.getSurveySubmitCount === 27) {
+        this.setNotice({
+          noticeTitle: '평가 완료',
+          noticeBody: '27개의 평가가 완료되었습니다.<br>마지막으로 가장 잘한 1위,2위,3위를 선정해주세요',
+          noticeButton: '확인',
+          noticeHeight: '100%',
+          noticeDisplay: 'inline-block',
+        });
       }
     },
     getSurveyOverlapCheck() {
@@ -215,6 +221,11 @@ export default {
           noticeDisplay: 'inline-block',
         });
         this.setSurveyOverlapCheckCheck({ surveyOverlapCheckCheckCheck: false });
+      }
+    },
+    getSurveyIsOk() {
+      if (this.getSurveyIsOk === true) {
+        this.clickDetailClose();
       }
     },
     getSurveyErrorState() {
@@ -233,6 +244,7 @@ export default {
     ...mapGetters(['getUID']),
     ...mapGetters(['getSurveyIsOk']),
     ...mapGetters(['getSurveyErrorState']),
+    ...mapGetters(['getSurveySubmitCount']),
     ...mapGetters(['getSurveyOverlapCheck']),
     ...mapGetters({
       detailImage: 'getDetailImage',
@@ -278,6 +290,15 @@ export default {
         display: 'inline-block',
       });
       this.onClickModal({ onModal: true });
+    },
+    clickOverlapOpen() {
+      this.setNotice({
+        noticeTitle: '제출 실패',
+        noticeBody: '이미 평가한 작품입니다',
+        noticeButton: '확인',
+        noticeHeight: '100%',
+        noticeDisplay: 'inline-block',
+      });
     },
     clickDetailImageOpen() {
       this.clickDetailImage({

@@ -257,6 +257,10 @@ export default {
     return contentResponse;
   },
   /* Survey */
+  async surveyRanking(store, { rank1, rank2, rank3 }) {
+    const surveyRankingResponse = await api.surveyRanking(rank1, rank2, rank3);
+    return surveyRankingResponse.data.output;
+  },
   initSurvey(store) {
     setSurveyErrorState(store, '');
     setSurveyIsOk(store, false);

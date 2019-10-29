@@ -19,6 +19,7 @@
             <div class="survey--result">
               <div class="result-q1">과학적 사고력</div>
               <div class="result-q2">산출물 완성도</div>
+              <div class="result-sq">인기도</div>
             </div>
             <div class="survey--result-total">
               <div class="result-total">총점</div>

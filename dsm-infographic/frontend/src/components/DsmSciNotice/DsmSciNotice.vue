@@ -12,6 +12,7 @@
       class="notice-content"
       v-bind:style="{ display: computedDisplay }"
     >
+
       <button
         id="noticeClose"
         class="closebtn"
@@ -104,6 +105,13 @@ export default {
       } else if (this.noticeTitle === '평가 제출') {
         this.surveySubmit();
         this.surveySubmitOverlapCheck({ contentId: this.contentId });
+      } else if (this.noticeTitle === '평가 완료') {
+        this.clickNoticeClose();
+        this.onClickModal({ onModal: false });
+        this.$router.push({
+          name: 'last',
+        });
+        return;
       }
       this.clickNoticeClose();
       this.onClickModal({ onModal: false });
