@@ -2,7 +2,7 @@
   <div class="last">
     <div class="last-info">
       <div class="last-title">
-        <h1>&lt; 마지막으로...{{ getUserContentId }} &gt;</h1>
+        <h1>&lt; 마지막으로... &gt;</h1>
       </div>
       <div class="last-desc">
         <p>마지막으로 가장 잘한 1위, 2위, 3위 작품을 선정해주시면 평가가 종료됩니다.</p>

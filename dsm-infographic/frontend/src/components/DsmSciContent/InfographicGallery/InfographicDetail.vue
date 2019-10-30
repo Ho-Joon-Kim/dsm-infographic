@@ -226,6 +226,7 @@ export default {
           noticeHeight: '100%',
           noticeDisplay: 'inline-block',
         });
+        this.initSurvey();
       }
     },
   },
