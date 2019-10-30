@@ -321,7 +321,7 @@ export default {
         return;
       }
 
-      if (this.getUID === 'admin' || this.getUID === 'dev') {
+      if (this.getUID === '0000' || this.getUID === '9999') {
         this.setNotice({
           noticeTitle: '제출 실패',
           noticeBody: 'admin 또는 dev계정은 평가에 참여할 수 없습니다',

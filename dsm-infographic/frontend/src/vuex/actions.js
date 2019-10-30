@@ -239,7 +239,7 @@ export default {
     setLoginHeight(store, '0%');
   },
   async login(store, { uid, pswd }) {
-    if (uid === 'admin' || uid === 'dev') {
+    if (uid === '0000' || uid === '9999') {
       setAdminCheck(store, true);
     } else {
       setAdminCheck(store, false);
@@ -316,8 +316,8 @@ export default {
   },
   async surveyResult(store, { contentId }) {
     if (
-      store.getters.getUID === 'admin'
-      || store.getters.getUID === 'dev'
+      store.getters.getUID === '0000'
+      || store.getters.getUID === '9999'
     ) {
       const surveyResultResponse = await api.surveyResult(contentId);
       return surveyResultResponse;
