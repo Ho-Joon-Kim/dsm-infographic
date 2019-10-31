@@ -10,7 +10,11 @@ router.post('/', function(req, res, next) {
     var check = user[id]["info_s"]
     var check_n = check.split(" ")
 
+<<<<<<< Updated upstream
     res.send({survey_num : check, survey_count : check_n.length-1});
+=======
+    res.send({surey_num : check, survey_count : check_n.length-1});
+>>>>>>> Stashed changes
 });
 
 module.exports = router;
