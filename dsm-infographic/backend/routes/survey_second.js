@@ -1,12 +1,23 @@
 var express = require('express');
 var router = express.Router();
+<<<<<<< Updated upstream
 var fs = require('fs');
 <<<<<<< Updated upstream
 =======
 var user = require("../public/user.json");
 >>>>>>> Stashed changes
 var survey = require("../public/survey.json");
+=======
+var mysql = require('mysql');
+>>>>>>> Stashed changes
 
+var connection = mysql.createConnection({
+    host     : '34.85.52.178',
+    user     : 'root',
+    password : 'ghwns6699',
+    database : 'info'
+  });
+  connection.connect();
 
 router.post('/', function(req, res, next) {
 <<<<<<< Updated upstream
@@ -15,18 +26,23 @@ router.post('/', function(req, res, next) {
     var trd = req.body.trd;
 
     if (fst == scd && scd == trd && trd == fst) {
-        res.send({output : survey[fst]["sq"]});
+        connection.query(`SELECT * from survey WHERE infonum = ${fst};`, function(err, rows, fields) { 
+        res.send({output : rows[0]["sq"]});
+        });
     }
 
+    
     else{
-        survey[fst]["sq"] = survey[fst]["sq"]+5;
-        survey[scd]["sq"] = survey[scd]["sq"]+3;
-        survey[trd]["sq"] = survey[trd]["sq"]+1;    
+        connection.query(`UPDATE survey SET sq = sq+5 WHERE infonum = ${fst};`, function(err, rows, fields) {
+        connection.query(`UPDATE survey SET sq = sq+3 WHERE infonum = ${scd};`, function(err, rows, fields) { 
+        connection.query(`UPDATE survey SET sq = sq+1 WHERE infonum = ${trd};`, function(err, rows, fields) { 
 
-        fs.writeFileSync('public/survey.json', JSON.stringify(survey), 'utf-8',function(){
-        });
+            res.send({output : "done"});
 
-        res.send({output : "done"});
+        }); 
+        }); 
+        }); 
+
     }
 
 =======

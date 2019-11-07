@@ -1,8 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var fs = require('fs');
-var user = require("../public/user.json");
-var survey = require("../public/survey.json");
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+    host     : '34.85.52.178',
+    user     : 'root',
+    password : 'ghwns6699',
+    database : 'info'
+  });
+  connection.connect();
 
 
 router.post('/', function(req, res, next) {
@@ -11,25 +17,33 @@ router.post('/', function(req, res, next) {
     var infoNum = req.body.infoNum;
     var id = req.body.id;
 
-    if(user[id]["info_m"] == infoNum)
-    {
-        res.send({output : "error"});
-    }
+    connection.query(`SELECT * from user WHERE num = ${id};`, function(err, rows, fields) {  
+        if(rows[0]["info_s"] == infoNum)
+        {
+            res.send({output : "error"});
+        }
+    });
+
+    var q1q2 = Number(q1_answer)+Number(q2_answer)
+    console.log(q1q2)
+    var num = ""
     
-    if(user[id]["info_m"] != infoNum){
+    connection.query(`UPDATE survey SET q1 = q1+${q1_answer} WHERE infonum = ${infoNum};`, function(err, rows, fields) {
+    connection.query(`UPDATE survey SET q2 = q2+${q2_answer} WHERE infonum = ${infoNum};`, function(err, rows, fields) {
+    connection.query(`SELECT * from user WHERE num = ${id};`, function(err, rows, fields) {  num =`${rows[0]["info_m"]} ${infoNum}`;
+    connection.query(`UPDATE user SET info_m = "${num}" WHERE num = ${id};`, function(err, rows, fields) {
+    infoNum = `i${infoNum}`
+    connection.query(`UPDATE user SET ${infoNum} = ${q1q2} WHERE num = ${id};`, function(err, rows, fields) {
 
-        survey[infoNum]["q1"] = Number(survey[infoNum]["q1"])+Number(q1_answer);
-        survey[infoNum]["q2"] = Number(survey[infoNum]["q2"])+Number(q2_answer);
 
-        user[id]["info_s"] = `${user[id]["info_s"]} ${infoNum}`;
     
-        fs.writeFileSync('public/survey.json', JSON.stringify(survey), 'utf-8',function(){
-        });
-
-        fs.writeFileSync('public/user.json', JSON.stringify(user), 'utf-8',function(){
-        });
         res.send({output : "done"});
-    }
+    
+    }); 
+    }); 
+    }); 
+    }); 
+    }); 
 
    
 });
