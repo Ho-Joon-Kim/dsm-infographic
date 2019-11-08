@@ -18,11 +18,7 @@ router.post('/', function(req, res, next) {
     var check = rows[0]["info_m"]
     var check_n = rows[0]["info_m"].split(" ")
 
-<<<<<<< Updated upstream
     res.send({survey_num : check, survey_count : check_n.length-1});
-=======
-    res.send({surey_num : check, survey_count : check_n.length-1});
->>>>>>> Stashed changes
 });
 });
 
