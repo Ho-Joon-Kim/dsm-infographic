@@ -7,7 +7,7 @@ Dsm-Infographic은 DSM 과학 기후 인포그래픽 각 작품들을 전시하�
 - 프로젝트 명 : Dsm-Infograpic
 - 팀 규모 : 2명
 - 개발툴 : Visual Studio Code
-- 개발 기간 : 2019.10.07 ~ Now
+- 개발 기간 : 2019.10.07 ~ 2019.11.11
 - 기술 스택 : 
   - FrontEnd
     - vue(+ vue-router, vuex)
