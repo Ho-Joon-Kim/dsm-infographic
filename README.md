@@ -16,6 +16,7 @@ Dsm-Infographic은 DSM 과학 기후 인포그래픽 각 작품들을 전시하�
   - BackEnd
     - node.js
     - express
+    - mysql
 - 배포 환경
   - google cloud platform
 
