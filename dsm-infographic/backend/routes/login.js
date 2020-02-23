@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var mysql = require('mysql');
+const express = require('express');
+const router = express.Router();
+const mysql = require('mysql');
 
-var connection = mysql.createConnection({
-    host     : '34.85.52.178',
+const connection = mysql.createConnection({
+    host     : process.env[ip],
     user     : 'root',
-    password : 'ghwns6699',
+    password : process.env[pswd],
     database : 'info'
   });
   connection.connect();
@@ -15,8 +15,8 @@ var connection = mysql.createConnection({
 
 router.post('/', function(req, res, next) {
 
-    var user_id = req.body.id;
-    var user_pswd= req.body.pswd;
+    const user_id = req.body.id;
+    const user_pswd= req.body.pswd;
     
 
 

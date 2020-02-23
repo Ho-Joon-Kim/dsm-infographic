@@ -1,21 +1,25 @@
-var express = require('express');
-var router = express.Router();
-var mysql = require('mysql');
+const express = require('express');
+const router = express.Router();
+const mysql = require('mysql');
+const path = require('path');
+const dotenv = require('dotenv');
 
-var connection = mysql.createConnection({
-    host     : '34.85.52.178',
+dotenv.config({ path: path.join(__dirname) })
+
+const connection = mysql.createConnection({
+    host     : process.env[ip],
     user     : 'root',
-    password : 'ghwns6699',
+    password : process.env[pswd],
     database : 'info'
   });
   connection.connect();
 
 
 router.post('/', function(req, res, next) {
-    var q1_answer = req.body.q1;
-    var q2_answer = req.body.q2;
-    var infoNum = req.body.infoNum;
-    var id = req.body.id;
+    const q1_answer = req.body.q1;
+    const q2_answer = req.body.q2;
+    const infoNum = req.body.infoNum;
+    const id = req.body.id;
 
     connection.query(`SELECT * from user WHERE num = ${id};`, function(err, rows, fields) {  
         if(rows[0]["info_s"] == infoNum)
@@ -24,9 +28,9 @@ router.post('/', function(req, res, next) {
         }
     });
 
-    var q1q2 = Number(q1_answer)+Number(q2_answer)
+    const q1q2 = Number(q1_answer)+Number(q2_answer)
     console.log(q1q2)
-    var num = ""
+    const num = ""
     
     connection.query(`UPDATE survey SET q1 = q1+${q1_answer} WHERE infonum = ${infoNum};`, function(err, rows, fields) {
     connection.query(`UPDATE survey SET q2 = q2+${q2_answer} WHERE infonum = ${infoNum};`, function(err, rows, fields) {

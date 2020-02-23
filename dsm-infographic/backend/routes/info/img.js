@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var fs = require('fs');
+const express = require('express');
+const router = express.Router();
+const fs = require('fs');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var info_id = req.query.imgid
+    const info_id = req.query.imgid
 
 
-    var filename = `public/info/${ info_id}.PNG`;
+    const filename = `public/info/${ info_id}.PNG`;
     fs.readFile(filename,              //파일 읽기
         function (err, data)
         {

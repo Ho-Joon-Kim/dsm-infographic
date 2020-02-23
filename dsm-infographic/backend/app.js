@@ -1,22 +1,22 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 
 
-var mainRouter = require('./routes/');
-var indexRouter = require('./routes/index');
-var loginRouter = require('./routes/login');
-var imgRouter = require('./routes/info/img');
-var descRouter = require('./routes/info/desc');
-var surveyRouter = require('./routes/survey');
-var adminRouter = require('./routes/admin');
-var survey_checkRouter = require('./routes/survey_check');
-var survey_secondRouter = require('./routes/survey_second');
+const mainRouter = require('./routes/');
+const indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login');
+const imgRouter = require('./routes/info/img');
+const descRouter = require('./routes/info/desc');
+const surveyRouter = require('./routes/survey');
+const adminRouter = require('./routes/admin');
+const survey_checkRouter = require('./routes/survey_check');
+const survey_secondRouter = require('./routes/survey_second');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

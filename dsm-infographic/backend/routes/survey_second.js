@@ -1,29 +1,29 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var fs = require('fs');
-
-
-var user = require("../public/user.json");
-
-var survey = require("../public/survey.json");
-
-var mysql = require('mysql');
+const fs = require('fs');
 
 
-var connection = mysql.createConnection({
-    host: '34.85.52.178',
-    user: 'root',
-    password: 'ghwns6699',
-    database: 'info'
+const user = require("../public/user.json");
+
+const survey = require("../public/survey.json");
+
+const mysql = require('mysql');
+
+
+const connection = mysql.createConnection({
+    host     : process.env[ip],
+    user     : 'root',
+    password : process.env[pswd],
+    database : 'info'
 });
 connection.connect();
 
 router.post('/', function (req, res, next) {
 
-    var fst = req.body.fst;
-    var scd = req.body.scd;
-    var trd = req.body.trd;
+    const fst = req.body.fst;
+    const scd = req.body.scd;
+    const trd = req.body.trd;
 
     if (fst == scd && scd == trd && trd == fst) {
         connection.query(`SELECT * from survey WHERE infonum = ${fst};`, function (err, rows, fields) {
@@ -46,10 +46,10 @@ router.post('/', function (req, res, next) {
     }
 
 
-    var q1_answer = req.body.q1;
-    var q2_answer = req.body.q2;
-    var infoNum = req.body.infoNum;
-    var id = req.body.id;
+    const q1_answer = req.body.q1;
+    const q2_answer = req.body.q2;
+    const infoNum = req.body.infoNum;
+    const id = req.body.id;
 
 
     survey[infoNum]["q1"] = survey[infoNum]["q1"]+q1_answer;
