@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-cosnt mysql      = require('mysql');
+const mysql      = require('mysql');
 
-cosnt connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host     : process.env[ip],
     user     : 'root',
     password : process.env[pswd],
